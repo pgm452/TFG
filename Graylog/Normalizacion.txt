@@ -1,0 +1,129 @@
+#### Comunes para todo sysmon ####
+rule "NORMALIZATION - Windows Sysmon Common"
+when
+    $message.data_win_system_providerName == "Microsoft-Windows-Sysmon"
+then
+    rename_field("data_win_eventdata_image", "data_image");
+    rename_field("data_win_eventdata_user", "data_user");
+    rename_field("data_win_eventdata_utcTime", "data_utcTime");
+    rename_field("data_win_system_channel", "data_channel");
+    rename_field("data_win_system_computer", "data_computer");
+    rename_field("data_win_system_eventID", "data_eventID");
+    rename_field("data_win_system_eventRecordID", "data_eventRecordID");
+    rename_field("data_win_system_keywords", "data_keywords");
+    rename_field("data_win_system_level", "data_level");
+    rename_field("data_win_system_message", "data_message");
+    rename_field("data_win_system_opcode", "data_opcode");
+    rename_field("data_win_system_processID", "data_processID");
+    rename_field("data_win_system_providerGuid", "data_providerGuid");
+    rename_field("data_win_system_providerName", "data_providerName");
+    rename_field("data_win_system_severityValue", "data_severityValue");
+    rename_field("data_win_system_systemTime", "data_systemTime");
+    rename_field("data_win_system_task", "data_task");
+    rename_field("data_win_system_threadID", "data_threadID");
+    rename_field("data_win_system_version", "data_version");
+    rename_field("data_win_eventdata_processGuid", "data_processGuid");
+    rename_field("data_win_eventdata_processId", "data_processId");
+
+end
+
+#### Sysmon 3, Pfsense ####
+rule "NORMALIZATION – Sysmon3, Pfsense"
+when
+    true
+then
+    rename_field("data_win_eventdata_destinationIp", "dst_ip");
+    rename_field("data_win_eventdata_destinationIsIpv6", "dst_ipv6");
+    rename_field("data_win_eventdata_destinationPort", "dst_port");
+    rename_field("data_win_eventdata_sourceIp", "src_ip");
+    rename_field("data_win_eventdata_sourceIsIpv6", "src_ipv6");
+    rename_field("data_win_eventdata_sourcePort", "src_port");
+    rename_field("data_win_eventdata_initiated", "data_initiated");
+    rename_field("data_win_eventdata_protocol", "data_protocol");
+    rename_field("data_win_eventdata_ruleName", "data_technique");
+
+    rename_field("data_dstip", "dst_ip");
+    rename_field("data_dstport", "dst_port");
+    rename_field("data_srcip", "src_ip");
+    rename_field("data_srcport", "src_port");
+end
+
+#### Sysmon 1 ####
+rule "NORMALIZATION - Sysmon 1"
+when
+    true
+then
+    rename_field("data_win_eventdata_commandLine", "data_commandLine");
+    rename_field("data_win_eventdata_company", "data_company");
+    rename_field("data_win_eventdata_currentDirectory", "data_currentDirectory");
+    rename_field("data_win_eventdata_description", "data_description");
+    rename_field("data_win_eventdata_fileVersion", "data_fileVersion");
+    rename_field("data_win_eventdata_hashes", "data_hashes");
+    rename_field("data_win_eventdata_integrityLevel", "data_integrityLevel");
+    rename_field("data_win_eventdata_logonGuid", "data_logonGuid");
+    rename_field("data_win_eventdata_logonId", "data_logonId");
+    rename_field("data_win_eventdata_parentCommandLine", "data_parentCommandLine");
+    rename_field("data_win_eventdata_parentImage", "data_parentImage");
+    rename_field("data_win_eventdata_parentProcessGuid", "data_parentProcessGuid");
+    rename_field("data_win_eventdata_parentProcessId", "data_parentProcessId");
+    rename_field("data_win_eventdata_parentUser", "data_parentUser");
+    rename_field("data_win_eventdata_product", "data_product");
+    rename_field("data_win_eventdata_ruleName", "data_technique");
+    rename_field("data_win_eventdata_terminalSessionId", "data_terminalSessionId");
+    rename_field("data_win_eventdata_originalFileName", "data_originalFileName");
+end
+
+#### Sysmon 7 ####
+rule "NORMALIZATION - Sysmon 7"
+when
+    true
+then
+    rename_field("data_win_eventdata_company", "data_company");
+    rename_field("data_win_eventdata_description", "data_description");
+    rename_field("data_win_eventdata_fileVersion", "data_fileVersion");
+    rename_field("data_win_eventdata_hashes", "data_hashes");
+    rename_field("data_win_eventdata_imageLoaded", "data_imageLoaded");
+    rename_field("data_win_eventdata_originalFileName", "data_originalFileName");
+    rename_field("data_win_eventdata_product", "data_product");
+    rename_field("data_win_eventdata_signature", "data_signature");
+    rename_field("data_win_eventdata_signatureStatus", "data_signatureStatus");
+    rename_field("data_win_eventdata_signed", "data_signed");
+end
+
+#### Sysmon 11 ####
+rule "NORMALIZATION - Sysmon 11"
+when
+    true
+then
+    rename_field("data_win_eventdata_creationUtcTime", "data_creationTimeUTC");
+    rename_field("data_win_eventdata_ruleName", "data_technique");
+    rename_field("data_win_eventdata_targetFilename", "data_targetFileName");
+end
+
+#### Sysmon 15 ####
+rule "NORMALIZATION - Sysmon 15"
+when
+    true
+then
+    rename_field("data_win_eventdata_contents", "data_contents");
+    rename_field("data_win_eventdata_hash", "data_hash");
+end
+
+#### Sysmon 22 ####
+rule "NORMALIZATION - Sysmon 22"
+when
+    true
+then
+    rename_field("data_win_eventdata_queryName", "data_queryName");
+    rename_field("data_win_eventdata_queryResults", "data_queryResults");
+    rename_field("data_win_eventdata_queryStatus", "data_queryStatus");
+end
+
+#### Sysmon 26 ####
+rule "NORMALIZATION - Sysmon 26"
+when
+    true
+then
+    rename_field("data_win_eventdata_isExecutable", "data_isExecutable");
+
+end

@@ -1,0 +1,31 @@
+<!-- Decoder para syslog de pfsense -->
+
+
+<decoder name="pfsense-syslog">
+    <prematch>filterlog[(\.*)]:</prematch>
+</decoder>
+
+
+<decoder name="pf-fields">
+  <parent>pfsense-syslog</parent>
+  <regex>\S*,\S*,\S*,(\S*),\S*,\S*,(\S*),</regex>
+  <order>id,action</order>
+</decoder>
+
+<decoder name="pf-fields">
+  <parent>pfsense-syslog</parent>
+  <regex offset="after_regex">\S*,\S*,\S*,\S*,\S*,\S*,\S*,\S*,\S*,(\S*),\S*,(\S*),(\S*),</regex>
+  <order>protocol,srcip,dstip</order>
+</decoder>
+
+<decoder name="pf-fields">
+  <parent>pfsense-syslog</parent>
+  <regex offset="after_regex">(\d*),(\d*),\S*</regex>
+  <order>srcport,dstport</order>
+</decoder>
+
+<decoder name="pf-fields">
+  <parent>pfsense-syslog</parent>
+  <regex offset="after_regex">datalength=(\S*)|(\d*)</regex>
+  <order>length</order>
+</decoder>

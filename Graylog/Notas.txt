@@ -1,0 +1,1 @@
+## Para extraer el nombre del fichero tenemos que añadir un Grok Pattern: .*\\%{Filename} > Siendo Filename un Grok Pattern nuevo con igual que Greed

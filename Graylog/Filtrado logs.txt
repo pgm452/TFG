@@ -1,0 +1,9 @@
+rule "Drop Archive Messages"
+when
+    !(contains(to_string($message.decoder_name), "pfsense") || contains(to_string($message.data_win_system_task), "1") || contains(to_string($message.data_win_system_task), "3")
+     || contains(to_string($message.data_win_system_task), "6") || contains(to_string($message.data_win_system_task), "7") || contains(to_string($message.data_win_system_task), "8")
+      || contains(to_string($message.data_win_system_task), "11") || contains(to_string($message.data_win_system_task), "15") || contains(to_string($message.data_win_system_task), "18")
+       || contains(to_string($message.data_win_system_task), "22") || contains(to_string($message.data_win_system_task), "25") || contains(to_string($message.data_win_system_task), "26"))
+then
+   drop_message();
+end

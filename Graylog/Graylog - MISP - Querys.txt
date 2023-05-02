@@ -1,0 +1,87 @@
+### Files Hashes ###
+
+rule "MISP THREAT INTEL - SYSMON - HASH SHA256"
+when
+	has_field($message.data_hash_sha256)
+then
+	let ldata = lookup(
+		lookup_table: "misp",
+		key: to_string($message.data_hash_sha256)
+	);
+    set_fields(
+		fields: ldata,
+		prefix: "misp_"
+    );
+end
+	
+rule "MISP THREAT INTEL - SYSMON - HASH SHA1"
+when
+	has_field("data_hash_sha1")
+    then
+        let ldata = lookup(
+            lookup_table: "misp",
+            key: to_string($message.data_hash_sha1)
+        );
+        set_fields(
+            fields: ldata,
+            prefix: "misp_"
+            );
+    end
+	
+rule "MISP THREAT INTEL - SYSMON - HASH MD5"
+when
+	has_field("data_hash_md5")
+    then
+        let ldata = lookup(
+            lookup_table: "misp",
+            key: to_string($message.data_hash_md5)
+        );
+        set_fields(
+            fields: ldata,
+            prefix: "misp_"
+            );
+    end
+	
+	
+### Network connection ###
+rule "MISP THREAT INTEL - NETWORK - DSTIP"
+when
+	has_field("dst_ip")
+    then
+        let ldata = lookup(
+            lookup_table: "misp",
+            key: to_string($message.dst_ip)
+        );
+        set_fields(
+            fields: ldata,
+            prefix: "misp_"
+            );
+    end
+	
+rule "MISP THREAT INTEL - NETWORK - SRCIP"
+when
+	has_field("src_ip")
+    then
+        let ldata = lookup(
+            lookup_table: "misp",
+            key: to_string($message.src_ip)
+        );
+        set_fields(
+            fields: ldata,
+            prefix: "misp_"
+            );
+    end
+	
+rule "MISP THREAT INTEL - SYSCHECK - Filename"
+when
+	has_field("Filename")
+    then
+        let ldata = lookup(
+            lookup_table: "misp",
+            key: to_string($message.Filename)
+        );
+        set_fields(
+            fields: ldata,
+            prefix: "misp_"
+            );
+    end

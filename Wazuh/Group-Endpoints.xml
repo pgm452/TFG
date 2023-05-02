@@ -1,0 +1,16 @@
+<agent_config>
+	<!-- File integrity monitoring -->
+	<syscheck>
+		<disabled>no</disabled>
+		<directories recursion_level="320" check_all="yes" realtime="yes">C:\Users</directories>
+		
+		<ignore>cookies-journal</ignore>
+		
+		<!--<directories check_all="yes" realtime="yes">C:\Users\*\Desktop</directories>
+		<directories check_all="yes" realtime="yes">C:\Users\*\Downloads</directories>
+	<directories check_all="yes" realtime="yes">C:\Users\*\Documents</directories>
+	-->
+	<!--<directories check_all="yes" realtime="yes">%LOCALAPPDATA%</directories>
+	-->
+</syscheck>
+</agent_config>

@@ -1727,6 +1727,8 @@
 <TargetFilename condition="end with">.vb</TargetFilename>
 <TargetFilename condition="end with">.vbe</TargetFilename>
 <TargetFilename condition="end with">.vbs</TargetFilename>
+
+<TargetFilename condition="contains">C:\</TargetFilename>
 </FileCreateStreamHash>
 </RuleGroup>
 <!--  Event ID 17,18 == PipeEvent. Log Named pipe created & Named pipe connected - Includes  -->

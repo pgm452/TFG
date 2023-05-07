@@ -2295,7 +2295,7 @@
 <TargetFilename condition="begin with">C:\Windows\System32\LogFiles\WMI\</TargetFilename>
 </Rule>
 <Rule groupRelation="and">
-<Image condition="is">powershell.exe</Image>
+<Image condition="end with">powershell.exe</Image>
 <TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\chainsaw\</TargetFilename>
 </Rule>
 

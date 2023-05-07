@@ -1406,6 +1406,8 @@
 <Image condition="begin with">C:\Program Files\ASUS\ARMOURY CRATE Service\ArmouryCrate.UserSessionHelper.exe</Image>
 <Image condition="begin with">C:\Windows\system32\svchost.exe</Image>
 <Image condition="begin with">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeClickToRun.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\active-responses</TargetFilename>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\ossec</TargetFilename>
 
 <Rule groupRelation="and">
 <Image condition="is">C:\Program Files\Mozilla Firefox\firefox.exe</Image>

@@ -22,6 +22,10 @@
 		<disabled>no</disabled>
 		<!-- Frequency that syscheck is executed default every 12 hours -->
 		<frequency>43200</frequency>
+		<!-- Basic Realtime Monitoring -->
+		<directories recursion_level="20" realtime="yes" whodata="yes">C:\Users\*\Desktop</directories>
+		<directories recursion_level="20" realtime="yes" whodata="yes">C:\Users\*\Downloads</directories>
+		<directories recursion_level="20" realtime="yes" whodata="yes">C:\Users\*\Documents</directories>
 		<!-- Default files to be monitored. -->
 		<directories recursion_level="0" restrict="regedit.exe$|system.ini$|win.ini$">%WINDIR%</directories>
 		<directories recursion_level="0" restrict="at.exe$|attrib.exe$|cacls.exe$|cmd.exe$|eventcreate.exe$|ftp.exe$|lsass.exe$|net.exe$|net1.exe$|netsh.exe$|reg.exe$|regedt32.exe|regsvr32.exe|runas.exe|sc.exe|schtasks.exe|sethc.exe|subst.exe$">%WINDIR%\SysNative</directories>
@@ -37,7 +41,9 @@
 		<directories recursion_level="0" restrict="winrm.vbs$">%WINDIR%\System32</directories>
 		<directories realtime="yes">%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Startup</directories>
 		<ignore>%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini</ignore>
-		<ignore type="sregex">.log$|.htm$|.jpg$|.png$|.chm$|.pnf$|.evtx$</ignore>
+		<!--<ignore type="sregex">.log$|.htm$|.jpg$|.png$|.chm$|.pnf$|.evtx$</ignore>
+											-->
+												-->
 		<!-- Windows registry entries to monitor. -->
 		<windows_registry>HKEY_LOCAL_MACHINE\Software\Classes\batfile</windows_registry>
 		<windows_registry>HKEY_LOCAL_MACHINE\Software\Classes\cmdfile</windows_registry>
@@ -123,6 +129,37 @@
 		<config_path>C:\Program Files\osquery\osquery.conf</config_path>
 		<add_labels>yes</add_labels>
 	</wodle>
+	<!-- Exec sigma rules -->
+	<!-- Exec sigma rules -->
+	<wodle name="command">
+		<disabled>no</disabled>
+		<tag>sigma_exec</tag>
+		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\chainsaw.ps1"</command>
+		<interval>5m</interval>
+		<ignore_output>yes</ignore_output>
+		<run_on_start>yes</run_on_start>
+		<timeout>300</timeout>
+	</wodle>
+	<!-- Update sigma rules -->
+	<wodle name="command">
+		<disabled>no</disabled>
+		<tag>chainsaw_update</tag>
+		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\chainsaw-sigma.ps1"</command>
+		<interval>1d</interval>
+		<ignore_output>yes</ignore_output>
+		<run_on_start>yes</run_on_start>
+		<timeout>180</timeout>
+	</wodle>
+	<!-- Update sysmonconfig.xml -->
+	<wodle name="command">
+		<disabled>no</disabled>
+		<tag>Sysmon_update</tag>
+		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sysmonupdate.ps1"</command>
+		<interval>1d</interval>
+		<ignore_output>yes</ignore_output>
+		<run_on_start>yes</run_on_start>
+		<timeout>60</timeout>
+	</wodle>
 	<!-- Active response -->
 	<active-response>
 		<disabled>no</disabled>
@@ -134,6 +171,11 @@
 		<location>Microsoft-Windows-Sysmon/Operational</location>
 		<log_format>eventchannel</log_format>
 	</localfile>
+	<!--<localfile>
+		<location>Security</location>
+		<log_format>eventchannel</log_format>
+	</localfile>
+												-->
 	<localfile>
 		<location>Windows PowerShell</location>
 		<log_format>eventchannel</log_format>
@@ -157,5 +199,9 @@
 	<localfile>
 		<location>Microsoft-Windows-Windows Defender/Operational</location>
 		<log_format>eventchannel</log_format>
+	</localfile>
+	<localfile>
+		<log_format>syslog</log_format>
+		<location>C:\Program Files (x86)\ossec-agent\active-response\active-responses.log</location>
 	</localfile>
 </agent_config>

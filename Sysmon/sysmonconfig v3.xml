@@ -618,6 +618,11 @@
 <Image name="technique_id=T1099,technique_name=Timestomp" condition="begin with">C:\Tmp</Image>
 <Image name="technique_id=T1099,technique_name=Timestomp" condition="begin with">C:\Users</Image>
 
+<Rule groupRelation="and">
+<Image condition="image">notepad.exe</Image>
+<CommandLine condition="contains">C:\Program Files (x86)\ossec-agent\</CommandLine>
+</Rule>
+
 <TargetFilename name="T1099" condition="end with">.exe</TargetFilename> <!--Look for backdated executables anywhere-->
 <Image name="T1099" condition="begin with">\Device\HarddiskVolumeShadowCopy</Image> <!--Nothing should be written here | Credit: @SBousseaden [ https://twitter.com/SBousseaden/status/1133030955407630336 ] -->
 </FileCreateTime>
@@ -2259,7 +2264,7 @@
 <TargetFilename condition="begin with">C:\Windows\Prefetch</TargetFilename>
 <TargetFilename condition="begin with">C:\ProgramData\ZeroTier\One\networks.d</TargetFilename>
 <TargetFilename condition="begin with">C:\Windows\Logs\WindowsUpdate\</TargetFilename>
-<TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\active-responses.log.lnk</TargetFilename>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\active-responses</TargetFilename>
 
 <Rule groupRelation="and">
 <Image condition="begin with">C:\Program Files\ASUS\ARMOURY CRATE Service\</Image>

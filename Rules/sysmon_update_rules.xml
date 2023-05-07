@@ -1,0 +1,22 @@
+<group name="windows,sysmon_update,">
+    <rule id="200056" level="3">
+    <field name="group">^sysmon_update</field>
+    <description>Sysmon Configuration - Update</description>
+    <group>sysmon_update,</group>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200057" level="3">
+    <if_sid>200050</if_sid>
+    <field name="message">^Sysmon configuration were updated successfully.$</field>
+    <description>$(message)</description>
+    <group>sysmon_update,</group>
+    <options>no_full_log</options>
+  </rule>
+  <rule id="200057" level="13">
+    <if_sid>200050</if_sid>
+    <field name="message">^Sysmon configuration were updated successfully.$</field>
+    <description>$(message)</description>
+    <group>sysmon_update,</group>
+    <options>no_full_log</options>
+  </rule>
+ </group>

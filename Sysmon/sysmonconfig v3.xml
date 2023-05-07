@@ -2238,11 +2238,11 @@
 <!--  Event ID 26 == File Delete and overwrite events - Excludes  -->
 <RuleGroup groupRelation="or">
 <FileDeleteDetected onmatch="exclude">
-<Image condition="end with">\AppData\Roaming\Spotify\Spotify.exe</Image>
+<Image condition="image">Spotify.exe</Image>
 <Image condition="begin with">C:\Program Files\Microsoft Office\root\Office16\</Image>
-<Image condition="end with">\AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
+<Image condition="image">Teams.exe</Image>
 <Image condition="is">C:\Program Files\Mozilla Firefox\firefox.exe</Image>
-<Image condition="is">C:\Program Files (x86)\ossec-agent\wazuh-agent.exe</Image>
+<Image condition="image">wazuh-agent.exe</Image>
 <Image condition="is">C:\Program Files (x86)\Advanced Monitoring Agent GP\winagent.exe</Image>
 <Image condition="is">C:\Program Files\ESET\RemoteAdministrator\Agent\ERAAgent.exe</Image>
 <Image condition="is">C:\Program Files\ESET\ESET Security\ekrn.exe</Image>
@@ -2259,7 +2259,7 @@
 <TargetFilename condition="begin with">C:\Windows\Prefetch</TargetFilename>
 <TargetFilename condition="begin with">C:\ProgramData\ZeroTier\One\networks.d</TargetFilename>
 <TargetFilename condition="begin with">C:\Windows\Logs\WindowsUpdate\</TargetFilename>
-
+<TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\active-responses.log.lnk</TargetFilename>
 
 <Rule groupRelation="and">
 <Image condition="begin with">C:\Program Files\ASUS\ARMOURY CRATE Service\</Image>

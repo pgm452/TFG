@@ -1410,6 +1410,10 @@
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\ossec</TargetFilename>
 
 <Rule groupRelation="and">
+<Image condition="image">git.exe</Image>
+<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\chainsaw\</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
 <Image condition="is">C:\Program Files\Mozilla Firefox\firefox.exe</Image>
 <TargetFilename condition="contains all">C:\Users\;\AppData\;\Mozilla\Firefox\Profiles\</TargetFilename>
 </Rule>
@@ -2300,7 +2304,10 @@
 <Image condition="end with">powershell.exe</Image>
 <TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\chainsaw\</TargetFilename>
 </Rule>
-
+<Rule groupRelation="and">
+<Image condition="image">git.exe</Image>
+<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\chainsaw\</TargetFilename>
+</Rule>
 
 </FileDeleteDetected>
 </RuleGroup>

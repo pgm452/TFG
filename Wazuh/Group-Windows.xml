@@ -42,8 +42,8 @@
 		<directories realtime="yes">%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Startup</directories>
 		<ignore>%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini</ignore>
 		<!--<ignore type="sregex">.log$|.htm$|.jpg$|.png$|.chm$|.pnf$|.evtx$</ignore>
-											-->
-												-->
+													-->
+														-->
 		<!-- Windows registry entries to monitor. -->
 		<windows_registry>HKEY_LOCAL_MACHINE\Software\Classes\batfile</windows_registry>
 		<windows_registry>HKEY_LOCAL_MACHINE\Software\Classes\cmdfile</windows_registry>
@@ -134,7 +134,7 @@
 	<wodle name="command">
 		<disabled>no</disabled>
 		<tag>sigma_exec</tag>
-		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\chainsaw.ps1"</command>
+		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sigma_exec.ps1"</command>
 		<interval>5m</interval>
 		<ignore_output>yes</ignore_output>
 		<run_on_start>yes</run_on_start>
@@ -143,8 +143,28 @@
 	<!-- Update sigma rules -->
 	<wodle name="command">
 		<disabled>no</disabled>
-		<tag>chainsaw_update</tag>
-		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\chainsaw-sigma.ps1"</command>
+		<tag>signma_rules_update</tag>
+		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sigma_rules_update.ps1"</command>
+		<interval>1d</interval>
+		<ignore_output>yes</ignore_output>
+		<run_on_start>yes</run_on_start>
+		<timeout>180</timeout>
+	</wodle>
+	<!-- Exec Yara rules -->
+	<wodle name="command">
+		<disabled>no</disabled>
+		<tag>yara_exec</tag>
+		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\yara_exec.ps1"</command>
+		<interval>5m</interval>
+		<ignore_output>yes</ignore_output>
+		<run_on_start>yes</run_on_start>
+		<timeout>300</timeout>
+	</wodle>
+	<!-- Update Yara rules -->
+	<wodle name="command">
+		<disabled>no</disabled>
+		<tag>yara_rules_update</tag>
+		<command>Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\yara_rules_update.ps1"</command>
 		<interval>1d</interval>
 		<ignore_output>yes</ignore_output>
 		<run_on_start>yes</run_on_start>
@@ -175,7 +195,7 @@
 		<location>Security</location>
 		<log_format>eventchannel</log_format>
 	</localfile>
-												-->
+													-->
 	<localfile>
 		<location>Windows PowerShell</location>
 		<log_format>eventchannel</log_format>

@@ -4,7 +4,7 @@ $file = "C:\Program Files (x86)\ossec-agent\active-response\active-responses.log
 
 # Create the destination folder if it does not exist
 if(!(Test-Path -Path $output)){
-    New-Item -ItemType Directory -Path $output\rules | Out-Null
+    New-Item -ItemType Directory -Path $output | Out-Null
 }else{
     Remove-Item -Recurse -Force $output\*
     New-Item -ItemType Directory -Path $output\rules | Out-Null
@@ -18,7 +18,14 @@ rm v4.2.3-2029-win64
 
 
 # Descarga el archivo de la URL especificada
-Invoke-WebRequest -Uri $url -OutFile $output\rules\yara_rules.yar
+$url = "https://valhalla.nextron-systems.com/api/v1/get"
+$outputFilePath = "C:\Program Files (x86)\ossec-agent\yara\rules\yara_rules.yar"
+$payload = @{
+    demo = "demo"
+    apikey = "1111111111111111111111111111111111111111111111111111111111111111"
+    format = "text"
+}
+Invoke-WebRequest -Uri $url -Method Post -Body $payload -OutFile $outputFilePath
 
 if ($LASTEXITCODE -eq 0) {
     $status_payload = @{

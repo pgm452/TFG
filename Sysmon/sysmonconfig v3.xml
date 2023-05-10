@@ -594,6 +594,8 @@
 <CommandLine condition="contains">roadtech/roadtech/</CommandLine>
 <CommandLine condition="contains">http://10.0.0.6/ConPrm14/Correo/MNClient.exe</CommandLine>
 <CommandLine condition="contains">http://192.168.1.222/ConPrm14/Correo/MNClient.exe</CommandLine>
+<CommandLine condition="contains">yara64.exe</CommandLine>
+<Image condition="image">yara64.exe</Image>
 
 <Image condition="contains">AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
 <Image condition="contains all">\AppData\Local\GitHubDesktop\;\resources\app\git\cmd\git.exe</Image>
@@ -602,6 +604,11 @@
 <Image condition="contains all">AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
 <Image condition="is">C:\Program Files\Veeam\Endpoint Backup\Veeam.EndPoint.Manager.exe</Image>
 <Image condition="is">C:\Program Files (x86)\ossec-agent\yara\yara64.exe</Image>
+<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\yara_exec.ps1"</ParentCommandLine>
+<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\yara_rules_update.ps1"</ParentCommandLine>
+<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sigma_exec.ps1"</ParentCommandLine>
+<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sigma_rules_update.ps1"</ParentCommandLine>
+<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sysmonupdate.ps1"</ParentCommandLine>
 
 <Rule groupRelation="and">
 <ParentImage condition="image">opera.exe</ParentImage>
@@ -1086,10 +1093,19 @@
 <Image condition="is">C:\Windows\System32\VaultCmd.exe</Image>
 <OriginalFileName condition="is">vaultcli.dll</OriginalFileName>
 </Rule>
-<Rule>
+<Rule groupRelation="and">
+<Image condition="is">C:\Windows\System32\svchost.exe</Image>
+<OriginalFileName condition="contains any">vaultcli.dll; taskschd.dll</OriginalFileName>
+</Rule>
+<Rule groupRelation="and">
 <Image condition="is">C:\Windows\System32\svchost.exe</Image>
 <OriginalFileName condition="is">vaultcli.dll</OriginalFileName>
 </Rule>
+<Rule groupRelation="and">
+<Image condition="image">powershell.exe</Image>
+<OriginalFileName condition="begin with">C:\Windows\Microsoft.NET\Framework\</OriginalFileName>
+</Rule>
+
 
 <!-- CUSTOM -->
 <Image condition="image">Teams.exe</Image>
@@ -1140,6 +1156,7 @@
 <RuleGroup groupRelation="or">
 <RawAccessRead onmatch="include"/>
 </RuleGroup>
+
 <!--  Event ID 10 == ProcessAccess - Includes  -->
 <RuleGroup groupRelation="or">
 <ProcessAccess onmatch="include">
@@ -1187,10 +1204,10 @@
 <SourceImage condition="contains all">C:\Program Files;\Microsoft Office\Root\Office</SourceImage>
 <CallTrace condition="contains">\Microsoft Shared\VBA</CallTrace>
 </Rule>
-<Rule groupRelation="and">
+<!--<Rule groupRelation="and">
 <CallTrace name="technique_id=T1055.001,technique_name=Dynamic-link Library Injection" condition="contains all">C:\Windows\SYSTEM32\ntdll.dll;C:\Windows\System32\kernelbase.dll;UNKNOWN</CallTrace>
 <GrantedAccess name="technique_id=T1055.001,technique_name=Dynamic-link Library Injection" condition="contains any">0x1F0FFF;0x1F1FFF;0x143A;0x1410;0x1010;0x1F2FFF;0x1F3FFF;0x1FFFFF</GrantedAccess>
-</Rule>
+</Rule>-->
 <GrantedAccess name="technique_id=T1093,technique_name=Process Hollowing">0x0800</GrantedAccess>
 <GrantedAccess name="technique_id=T1003,technique_name=Credential Dumping">0x0810</GrantedAccess>
 <GrantedAccess name="technique_id=T1055,technique_name=Process Injection">0x0820</GrantedAccess>
@@ -1271,7 +1288,7 @@
 <SourceImage condition="end with">components\metricbeat.exe</SourceImage>
 <SourceImage condition="end with">AppData\Local\Programs\Opera\opera.exe</SourceImage>
 <SourceImage condition="end with">AppData\Roaming\Spotify\Spotify.exe</SourceImage>
-<TargetImage condition="is">C:\Program Files (x86)\ossec-agent\yara\yara64.exe</TargetImage>
+<TargetImage condition="image">yara64.exe</TargetImage>
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
 <TargetImage condition="image">opera.exe</TargetImage>
@@ -1787,6 +1804,7 @@
 <Image condition="end with">AppData\Local\Programs\Opera\opera.exe</Image>
 <Image condition="is">C:\Program Files (x86)\Google\Update\GoogleUpdate.exe</Image>
 <Image condition="contains">Microsoft Office\root\Office16\</Image>
+<Image condition="is">C:\Windows\system32\AUDIODG.EXE</Image>
 
 <TargetObject condition="contains all">HKLM\System\CurrentControlSet\Services\;\Linkage</TargetObject>
 
@@ -2272,6 +2290,9 @@
 <TargetFilename condition="begin with">C:\Windows\Logs\WindowsUpdate\</TargetFilename>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\active-responses</TargetFilename>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\ossec</TargetFilename>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\Microsoft\Windows\Explorer\NotifyIcon</TargetFilename>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations</TargetFilename>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\Google\DriveFS\</TargetFilename>
 
 <Rule groupRelation="and">
 <Image condition="begin with">C:\Program Files\ASUS\ARMOURY CRATE Service\</Image>
@@ -2309,6 +2330,27 @@
 <Image condition="image">git.exe</Image>
 <TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\chainsaw\</TargetFilename>
 </Rule>
+<Rule groupRelation="and">
+<Image condition="image">msedgewebview2.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\Microsoft\Office\</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">RuntimeBroker.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">Powershell.exe</Image>
+<TargetFilename condition="contains all">C:\Windows\SysWOW64\config\systemprofile\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-NonInteractive</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">Powershell.exe</Image>
+<TargetFilename condition="contains all">C:\Windows\Temp\;.qk1.ps1</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">Powershell.exe</Image>
+<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\</TargetFilename>
+</Rule>
+
 
 </FileDeleteDetected>
 </RuleGroup>

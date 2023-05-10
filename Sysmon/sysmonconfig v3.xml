@@ -601,6 +601,7 @@
 <Image condition="is">C:\Windows\System32\wbem\WmiPrvSE.exe</Image>
 <Image condition="contains all">AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
 <Image condition="is">C:\Program Files\Veeam\Endpoint Backup\Veeam.EndPoint.Manager.exe</Image>
+<Image condition="is">C:\Program Files (x86)\ossec-agent\yara\yara64.exe</Image>
 
 <Rule groupRelation="and">
 <ParentImage condition="image">opera.exe</ParentImage>
@@ -1270,7 +1271,7 @@
 <SourceImage condition="end with">components\metricbeat.exe</SourceImage>
 <SourceImage condition="end with">AppData\Local\Programs\Opera\opera.exe</SourceImage>
 <SourceImage condition="end with">AppData\Roaming\Spotify\Spotify.exe</SourceImage>
-
+<TargetImage condition="is">C:\Program Files (x86)\ossec-agent\yara\yara64.exe</TargetImage>
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
 <TargetImage condition="image">opera.exe</TargetImage>

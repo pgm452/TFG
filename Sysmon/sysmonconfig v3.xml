@@ -1289,11 +1289,12 @@
 <SourceImage condition="end with">AppData\Local\Programs\Opera\opera.exe</SourceImage>
 <SourceImage condition="end with">AppData\Roaming\Spotify\Spotify.exe</SourceImage>
 <TargetImage condition="image">yara64.exe</TargetImage>
+<TargetImage condition="image">MNprogram.exe</TargetImage>
+
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
 <TargetImage condition="image">opera.exe</TargetImage>
 </Rule>
-
 <Rule groupRelation="and">
 <SourceImage condition="contains all">C:\Users\;\AppData\Local\Microsoft\Teams\current\Teams.exe</SourceImage>
 <TargetImage condition="contains all">C:\Users\;\AppData\Local\Microsoft\Teams\current\Teams.exe</TargetImage>
@@ -2281,6 +2282,7 @@
 <Image condition="is">C:\Program Files\ESET\ESET Full Disk Encryption\efdeais.exe</Image>
 <Image condition="is">C:\Program Files\Advanced Monitoring Agent Network Management\NetworkManagement.exe</Image>
 <Image condition="is">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeClickToRun.exe</Image>
+<Image condition="contains">C:\Program Files\LGHUB\lghub_updater.exe</Image>
 <Image condition="begin with">C:\Windows\SystemApps\Microsoft.Windows.Searche</Image>
 
 
@@ -2294,8 +2296,14 @@
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Microsoft\Windows\Explorer\NotifyIcon</TargetFilename>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations</TargetFilename>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Google\DriveFS\</TargetFilename>
-<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\sigma\</TargetFilename>
+<TargetFilename condition="contains all">C:\Windows\Temp\;.tmp</TargetFilename>
+<TargetFilename condition="begin with"> C:\Program Files\WindowsApps\Deleted\Microsoft.SkypeApp</TargetFilename>
 
+
+<Rule groupRelation="and">
+<Image condition="image">powershell.exe</Image>
+<TargetFilename condition="contains any">C:\Program Files (x86)\ossec-agent\sigma\;C:\Windows\Temp\</TargetFilename>
+</Rule>
 <Rule groupRelation="and">
 <Image condition="begin with">C:\Program Files\ASUS\ARMOURY CRATE Service\</Image>
 <TargetFilename condition="contains all">C:\Users\;\AppData\;\ASUS\Armoury Crate Service\</TargetFilename>
@@ -2325,10 +2333,6 @@
 <TargetFilename condition="begin with">C:\Windows\System32\LogFiles\WMI\</TargetFilename>
 </Rule>
 <Rule groupRelation="and">
-<Image condition="end with">powershell.exe</Image>
-<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\</TargetFilename>
-</Rule>
-<Rule groupRelation="and">
 <Image condition="image">git.exe</Image>
 <TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\chainsaw\</TargetFilename>
 </Rule>
@@ -2348,6 +2352,11 @@
 <Image condition="image">Powershell.exe</Image>
 <TargetFilename condition="contains all">C:\Windows\Temp\;.qk1.ps1</TargetFilename>
 </Rule>
+<Rule groupRelation="and">
+<Image condition="image">opera.exe</Image>
+<TargetFilename condition="contains all">\AppData\Local\Opera Software\Opera Stable\Cache\</TargetFilename>
+</Rule>
+
 
 
 </FileDeleteDetected>

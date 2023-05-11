@@ -2257,11 +2257,12 @@
 <FileDeleteDetected onmatch="include">
 <TargetFilename condition="begin with">C:\</TargetFilename>
 </FileDeleteDetected>
-
+<!--
 <CreateRemoteThread onmatch="include">
 <SourceImage name="technique_id=T1055,technique_name=Process Injection" condition="begin with">C:\</SourceImage>
 <SourceImage name="technique_id=T1055,technique_name=Process Injection" condition="begin with">\\</SourceImage>
 </CreateRemoteThread>
+-->
 </RuleGroup>
 
 <!--  Event ID 26 == File Delete and overwrite events - Excludes  -->
@@ -2293,6 +2294,7 @@
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Microsoft\Windows\Explorer\NotifyIcon</TargetFilename>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations</TargetFilename>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Google\DriveFS\</TargetFilename>
+<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\sigma\</TargetFilename>
 
 <Rule groupRelation="and">
 <Image condition="begin with">C:\Program Files\ASUS\ARMOURY CRATE Service\</Image>
@@ -2324,7 +2326,7 @@
 </Rule>
 <Rule groupRelation="and">
 <Image condition="end with">powershell.exe</Image>
-<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\chainsaw\</TargetFilename>
+<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\</TargetFilename>
 </Rule>
 <Rule groupRelation="and">
 <Image condition="image">git.exe</Image>
@@ -2345,10 +2347,6 @@
 <Rule groupRelation="and">
 <Image condition="image">Powershell.exe</Image>
 <TargetFilename condition="contains all">C:\Windows\Temp\;.qk1.ps1</TargetFilename>
-</Rule>
-<Rule groupRelation="and">
-<Image condition="image">Powershell.exe</Image>
-<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\</TargetFilename>
 </Rule>
 
 

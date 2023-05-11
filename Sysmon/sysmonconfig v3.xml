@@ -2299,7 +2299,10 @@
 <TargetFilename condition="contains all">C:\Windows\Temp\;.tmp</TargetFilename>
 <TargetFilename condition="begin with"> C:\Program Files\WindowsApps\Deleted\Microsoft.SkypeApp</TargetFilename>
 
-
+<Rule groupRelation="and">
+<Image condition="image">MicrosoftEdgeUpdate.exe</Image>
+<TargetFilename condition="begin with">C:\Program Files (x86)\Microsoft\EdgeUpdate\</TargetFilename>
+</Rule>
 <Rule groupRelation="and">
 <Image condition="image">powershell.exe</Image>
 <TargetFilename condition="contains any">C:\Program Files (x86)\ossec-agent\sigma\;C:\Windows\Temp\</TargetFilename>

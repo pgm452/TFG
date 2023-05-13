@@ -1,8 +1,8 @@
 <!-- 
   -  Sysmon Config - Based on Olaf Hartong's sysmon-modular
-  -  Updated by Wazuh, Inc.
+  -  Updated by Pedro G.
  -->
-<Sysmon schemaversion="4.60">
+<Sysmon schemaversion="4.62">
 <HashAlgorithms>*</HashAlgorithms>
 <!--  This now also determines the file names of the files preserved (String)  -->
 <CheckRevocation>False</CheckRevocation>
@@ -604,6 +604,7 @@
 <Image condition="contains all">AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
 <Image condition="is">C:\Program Files\Veeam\Endpoint Backup\Veeam.EndPoint.Manager.exe</Image>
 <Image condition="is">C:\Program Files (x86)\ossec-agent\yara\yara64.exe</Image>
+
 <ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\yara_exec.ps1"</ParentCommandLine>
 <ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\yara_rules_update.ps1"</ParentCommandLine>
 <ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sigma_exec.ps1"</ParentCommandLine>
@@ -1113,6 +1114,7 @@
 <Image condition="contains all">\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
 <Image condition="contains all">AppData\Local\NVIDIA\;\OAWrapper.exe</Image>
+<Image condition="image">git.exe</Image>
 
 <Rule groupRelation="and">
 <Image condition="contains all">AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
@@ -1290,6 +1292,7 @@
 <SourceImage condition="end with">AppData\Roaming\Spotify\Spotify.exe</SourceImage>
 <TargetImage condition="image">yara64.exe</TargetImage>
 <TargetImage condition="image">MNprogram.exe</TargetImage>
+<TargetImage condition="is">C:\Program Files (x86)\ossec-agent\chainsaw\chainsaw.exe</TargetImage>
 
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
@@ -1499,7 +1502,10 @@
 <Image condition="is">C:\Windows\system32\mmc.exe</Image>
 <TargetFilename condition="contains all">\AppData\Local\Temp\;.tmp</TargetFilename>
 </Rule>
-
+<Rule groupRelation="and">
+<Image condition="is">Powershell.exe</Image>
+<TargetFilename condition="begin with">C:\Windows\Temp\</TargetFilename>
+</Rule>
 
 </FileCreate>
 </RuleGroup>
@@ -1820,6 +1826,10 @@
 <Rule groupRelation="and">
 <Image condition="contains all"> C:\Windows\System32\DriverStore\;\NVDisplay.Container.exe</Image>
 <TargetObject condition="contains">HKLM\System\CurrentControlSet\Services</TargetObject>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">Powershell.exe</Image>
+<TargetObject condition="contains">HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\Certificates</TargetObject>
 </Rule>
 
 
@@ -2257,13 +2267,14 @@
 <RuleGroup groupRelation="or">
 <FileDeleteDetected onmatch="include">
 <TargetFilename condition="begin with">C:\</TargetFilename>
+<Image condition="image">Explorer.exe</Image>
 </FileDeleteDetected>
-<!--
+
 <CreateRemoteThread onmatch="include">
 <SourceImage name="technique_id=T1055,technique_name=Process Injection" condition="begin with">C:\</SourceImage>
 <SourceImage name="technique_id=T1055,technique_name=Process Injection" condition="begin with">\\</SourceImage>
 </CreateRemoteThread>
--->
+
 </RuleGroup>
 
 <!--  Event ID 26 == File Delete and overwrite events - Excludes  -->
@@ -2284,7 +2295,9 @@
 <Image condition="is">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeClickToRun.exe</Image>
 <Image condition="contains">C:\Program Files\LGHUB\lghub_updater.exe</Image>
 <Image condition="begin with">C:\Windows\SystemApps\Microsoft.Windows.Searche</Image>
-
+<Image condition="image">TiWorker.exe</Image>
+<Image condition="image">vmware.exe</Image>
+<Image condition="contains all">C:\Program Files (x86)\Microsoft\EdgeUpdate\Install\;setup.exe</Image>
 
 <TargetFilename condition="contains">AppData\Roaming\Opera Software\Opera Stable</TargetFilename>
 <TargetFilename condition="contains">AppData\Local\Packages\Microsoft</TargetFilename>
@@ -2298,6 +2311,8 @@
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Google\DriveFS\</TargetFilename>
 <TargetFilename condition="contains all">C:\Windows\Temp\;.tmp</TargetFilename>
 <TargetFilename condition="begin with"> C:\Program Files\WindowsApps\Deleted\Microsoft.SkypeApp</TargetFilename>
+<TargetFilename condition="begin with">C:\$Recycle.Bin\</TargetFilename>
+
 
 <Rule groupRelation="and">
 <Image condition="image">MicrosoftEdgeUpdate.exe</Image>

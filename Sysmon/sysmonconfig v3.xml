@@ -2,7 +2,7 @@
   -  Sysmon Config - Based on Olaf Hartong's sysmon-modular
   -  Updated by Pedro G.
  -->
-<Sysmon schemaversion="4.62">
+<Sysmon schemaversion="4.83">
 <HashAlgorithms>*</HashAlgorithms>
 <!--  This now also determines the file names of the files preserved (String)  -->
 <CheckRevocation>False</CheckRevocation>
@@ -596,6 +596,7 @@
 <CommandLine condition="contains">http://192.168.1.222/ConPrm14/Correo/MNClient.exe</CommandLine>
 <CommandLine condition="contains">yara64.exe</CommandLine>
 <Image condition="image">yara64.exe</Image>
+<Image condition="is">C:\Windows\System32\notepad.exe</Image>
 
 <Image condition="contains">AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
 <Image condition="contains all">\AppData\Local\GitHubDesktop\;\resources\app\git\cmd\git.exe</Image>
@@ -1115,6 +1116,7 @@
 <Image condition="contains all">C:\Users\;\AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
 <Image condition="contains all">AppData\Local\NVIDIA\;\OAWrapper.exe</Image>
 <Image condition="image">git.exe</Image>
+<Image condition="contains">\AppData\Local\Microsoft\OneDrive\</Image>
 
 <Rule groupRelation="and">
 <Image condition="contains all">AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
@@ -1812,6 +1814,7 @@
 <Image condition="is">C:\Program Files (x86)\Google\Update\GoogleUpdate.exe</Image>
 <Image condition="contains">Microsoft Office\root\Office16\</Image>
 <Image condition="is">C:\Windows\system32\AUDIODG.EXE</Image>
+<Image condition="contains">\AppData\Local\Microsoft\OneDrive\</Image>
 
 <TargetObject condition="contains all">HKLM\System\CurrentControlSet\Services\;\Linkage</TargetObject>
 
@@ -2298,6 +2301,8 @@
 <Image condition="image">TiWorker.exe</Image>
 <Image condition="image">vmware.exe</Image>
 <Image condition="contains all">C:\Program Files (x86)\Microsoft\EdgeUpdate\Install\;setup.exe</Image>
+<Image condition="contains all">C:\Program Files (x86)\Microsoft\Edge\Application\;\Installer\setup.exe</Image>
+<Image condition="is">C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe</Image>
 
 <TargetFilename condition="contains">AppData\Roaming\Opera Software\Opera Stable</TargetFilename>
 <TargetFilename condition="contains">AppData\Local\Packages\Microsoft</TargetFilename>

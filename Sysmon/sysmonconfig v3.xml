@@ -1128,6 +1128,7 @@
 <Image condition="contains">\AppData\Local\Microsoft\OneDrive\</Image>
 <Image condition="contains all">C:\Program Files (x86)\ASUS\Update\;\Get-AppxVersion.exe</Image>
 <Image condition="is">C:\Windows\System32\ASUSACCI\ArmouryCrateKeyControl.exe</Image>
+<Image condition="end with">\AppData\Local\Microsoft\OneDrive\OneDrive.exe</Image>
 
 <Rule groupRelation="and">
 <Image condition="image">powershell.exe</Image>
@@ -1162,6 +1163,10 @@
 <ImageLoaded condition="contains all">\AppData\Local\Microsoft\EdgeUpdate\;.dll</ImageLoaded>
 </Rule>
 <Rule groupRelation="and">
+<Image condition="is">C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe</Image>
+<ImageLoaded condition="is"> C:\Windows\System32\vaultcli.dll</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
 <Image condition="is">C:\Windows\System32\sppsvc.exe</Image>
 <ImageLoaded condition="is">C:\Windows\System32\taskschd.dll</ImageLoaded>
 </Rule>
@@ -1171,6 +1176,10 @@
 </Rule>
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\System32\svchost.exe</Image>
+<ImageLoaded condition="is">C:\Windows\System32\taskschd.dll</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="is">C:\Windows\System32\schtasks.exe</Image>
 <ImageLoaded condition="is">C:\Windows\System32\taskschd.dll</ImageLoaded>
 </Rule>
 <Rule groupRelation="and">
@@ -1184,6 +1193,10 @@
 <Rule groupRelation="and">
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\desktop-trampoline\desktop-trampoline.exe</Image>
 <ImageLoaded condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\desktop-trampoline\desktop-trampoline.exe</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="contains all">C:\Users\;\AppData\Local\MEGAsync\MEGAupdater.exe</Image>
+<ImageLoaded condition="contains all">C:\Users\;\AppData\Local\MEGAsync\MEGAupdater.exe</ImageLoaded>
 </Rule>
 
 
@@ -1301,6 +1314,7 @@
 <RuleGroup groupRelation="or">
 <ProcessAccess onmatch="exclude">
 <SourceImage condition="is">C:\Program Files\Adobe\Adobe Creative Cloud Experience\libs\node.exe</SourceImage>
+<SourceImage condition="end with">\AppData\Local\Microsoft\OneDrive\Update\OneDriveSetup.exe</SourceImage>
 <SourceImage condition="contains all">C:\Program Files;\Common Files\Adobe\AdobeGCClient\AGMService.exe</SourceImage>
 <SourceImage condition="is">C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\Acrobat.exe</SourceImage>
 <SourceImage condition="is">C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\AcroCEF\AcroCEF.exe</SourceImage>
@@ -1343,6 +1357,9 @@
 <SourceImage condition="end with">components\metricbeat.exe</SourceImage>
 <SourceImage condition="end with">AppData\Local\Programs\Opera\opera.exe</SourceImage>
 <SourceImage condition="end with">AppData\Roaming\Spotify\Spotify.exe</SourceImage>
+<SourceImage condition="contains all">C:\Users\;\AppData\Local\Microsoft\OneDrive\;\FileSyncConfig.exe</SourceImage>
+<SourceImage condition="end with">\AppData\Local\Microsoft\OneDrive\OneDrive.exe</SourceImage>
+<SourceImage condition="contains all">C:\Users\;\AppData\Local\Microsoft\OneDrive\;\Microsoft.SharePoint.exe</SourceImage>
 <TargetImage condition="image">yara64.exe</TargetImage>
 <TargetImage condition="image">MNprogram.exe</TargetImage>
 <TargetImage condition="is">C:\Program Files (x86)\ossec-agent\chainsaw\chainsaw.exe</TargetImage>
@@ -1478,6 +1495,8 @@
 <Image condition="is">C:\Program Files\ESET\RemoteAdministrator\Agent\ERAAgent.exe</Image>
 <Image condition="is">C:\Program Files\Advanced Monitoring Agent Network Management\NetworkManagement.exe</Image>
 <Image condition="is">C:\Program Files (x86)\ossec-agent\chainsaw\chainsaw.exe</Image>
+<Image condition="is">C:\Program Files (x86)\ASUSTeK COMPUTER INC\RefreshRateService\RefreshRateService.exe</Image>
+<Image condition="is">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeC2RClient.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Roaming\Spotify\Spotify.exe</Image>
 <Image condition="begin with">C:\Program Files\Microsoft Office\root\Office16\</Image>
 <Image condition="begin with">C:\Program Files\ASUS\ARMOURY CRATE Service\ArmouryCrate.UserSessionHelper.exe</Image>
@@ -2375,6 +2394,8 @@
 <Image condition="is">C:\Program Files\NVIDIA Corporation\Update Core\NvProfileUpdater64.exe</Image>
 <Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
 <Image condition="is">C:\Windows\System32\ASUSACCI\AsCheckASCI.exe</Image>
+<Image condition="is">C:\Program Files (x86)\ASUSTeK COMPUTER INC\RefreshRateService\RefreshRateService.exe</Image>
+<Image condition="is">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeC2RClient.exe</Image>
 <Image condition="contains">C:\Program Files\LGHUB\lghub_updater.exe</Image>
 <Image condition="begin with">C:\Windows\SystemApps\Microsoft.Windows.Searche</Image>
 <Image condition="image">TiWorker.exe</Image>
@@ -2385,6 +2406,8 @@
 <Image condition="is">C:\Windows\System32\mousocoreworker.exe</Image>
 <Image condition="is">C:\WINDOWS\system32\svchost.exe</Image>
 <Image condition="end with">VMware\VMware Workstation\x64\vmware-vmx.exe</Image>
+<Image condition="end with">\AppData\Local\Microsoft\OneDrive\Update\OneDriveSetup.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Microsoft\OneDrive\;\Microsoft.SharePoint.exe</Image>
 <Image condition="begin with">C:\Program Files\Fortinet\FortiClient\</Image>
 <Image condition="contains all">C:\Program Files (x86)\Common Files\Adobe\ARM\;\AdobeARM.exe</Image>
 

@@ -1110,6 +1110,10 @@
 <Image condition="image">powershell.exe</Image>
 <OriginalFileName condition="begin with">C:\Windows\Microsoft.NET\Framework\</OriginalFileName>
 </Rule>
+<Rule groupRelation="and">
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
+<ImageLoaded condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\;.dll</ImageLoaded>
+</Rule>
 
 
 <!-- CUSTOM -->
@@ -1152,6 +1156,14 @@
 <Rule groupRelation="and">
 <Image condition="end with">\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
 <ImageLoaded condition="contains all">\AppData\Local\Microsoft\EdgeUpdate\;.dll</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="is">C:\Windows\System32\sppsvc.exe</Image>
+<ImageLoaded condition="is">C:\Windows\System32\taskschd.dll</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="is">C:\Windows\System32\backgroundTaskHost.exe</Image>
+<ImageLoaded condition="is">C:\Windows\System32\vaultcli.dll</ImageLoaded>
 </Rule>
 
 
@@ -1314,6 +1326,7 @@
 <TargetImage condition="image">yara64.exe</TargetImage>
 <TargetImage condition="image">MNprogram.exe</TargetImage>
 <TargetImage condition="is">C:\Program Files (x86)\ossec-agent\chainsaw\chainsaw.exe</TargetImage>
+<TargetImage condition="is">C:\Program Files\Git\cmd\git.exe</TargetImage>
 
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
@@ -1451,6 +1464,7 @@
 <Image condition="begin with">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeClickToRun.exe</Image>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\active-responses</TargetFilename>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\ossec</TargetFilename>
+<TargetFilename condition="is">C:\Windows\Temp\chainsaw_output</TargetFilename>
 
 <Rule groupRelation="and">
 <Image condition="image">Powershell.exe</Image>
@@ -1540,7 +1554,7 @@
 <TargetFilename condition="contains all">\AppData\Local\Temp\;.tmp</TargetFilename>
 </Rule>
 <Rule groupRelation="and">
-<Image condition="is">Powershell.exe</Image>
+<Image condition="image">Powershell.exe</Image>
 <TargetFilename condition="begin with">C:\Windows\Temp\</TargetFilename>
 </Rule>
 
@@ -1850,6 +1864,9 @@
 <Image condition="contains">Microsoft Office\root\Office16\</Image>
 <Image condition="is">C:\Windows\system32\AUDIODG.EXE</Image>
 <Image condition="contains">\AppData\Local\Microsoft\OneDrive\</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Temp\Sysmon.exe</Image>
+<Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;\NVDisplay.Container.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
 
 <TargetObject condition="contains all">HKLM\System\CurrentControlSet\Services\;\Linkage</TargetObject>
 
@@ -2340,6 +2357,9 @@
 <Image condition="is">C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe</Image>
 <Image condition="is">C:\Windows\System32\mousocoreworker.exe</Image>
 <Image condition="is">C:\WINDOWS\system32\svchost.exe</Image>
+<Image condition="end with">VMware\VMware Workstation\x64\vmware-vmx.exe</Image>
+<Image condition="begin with">C:\Program Files\Fortinet\FortiClient\</Image>
+<Image condition="contains all">C:\Program Files (x86)\Common Files\Adobe\ARM\;\AdobeARM.exe</Image>
 
 <TargetFilename condition="contains">AppData\Roaming\Opera Software\Opera Stable</TargetFilename>
 <TargetFilename condition="contains">AppData\Local\Packages\Microsoft</TargetFilename>
@@ -2415,6 +2435,14 @@
 <Rule groupRelation="and">
 <Image condition="image">opera.exe</Image>
 <TargetFilename condition="contains all">\AppData\Local\Opera Software\Opera Stable\Cache\</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">C:\Windows\SysWOW64\SecEdit.exe</Image>
+<TargetFilename condition="is">C:\Windows\Temp\secexport.cfg</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">C:\Windows\system32\backgroundTaskHost.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\;.TMP</TargetFilename>
 </Rule>
 
 

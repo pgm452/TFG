@@ -1119,6 +1119,14 @@
 <Image condition="contains">\AppData\Local\Microsoft\OneDrive\</Image>
 
 <Rule groupRelation="and">
+<Image condition="image">powershell.exe</Image>
+<ImageLoaded condition="contains all">C:\Windows\Microsoft.NET\Framework\;.dll</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">powershell.exe</Image>
+<ImageLoaded condition="begin with">C:\Windows\Microsoft.NET\Framework\</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
 <Image condition="contains all">AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
 <ImageLoaded condition="contains all">\AppData\Local\Microsoft\OneDrive\;.dll</ImageLoaded>
 </Rule>
@@ -1433,6 +1441,18 @@
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\active-responses</TargetFilename>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\ossec</TargetFilename>
 
+<Rule groupRelation="and">
+<Image condition="image">Powershell.exe</Image>
+<TargetFilename condition="contains all">C:\Windows\Temp\;.psm1</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">Powershell.exe</Image>
+<TargetFilename condition="contains all">C:\Windows\Temp\;.ps1</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="is">C:\Windows\System32\backgroundTaskHost.exe</Image>
+<TargetFilename condition="is">C:\Windows\System32\vaultcli.dll</TargetFilename>
+</Rule>
 <Rule groupRelation="and">
 <Image condition="image">git.exe</Image>
 <TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\chainsaw\</TargetFilename>

@@ -599,6 +599,7 @@
 <Image condition="is">C:\Windows\System32\notepad.exe</Image>
 <Image condition="end with">\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\desktop-trampoline\desktop-trampoline.exe</Image>
 
 <Image condition="contains">AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
 <Image condition="contains all">\AppData\Local\GitHubDesktop\;\resources\app\git\cmd\git.exe</Image>
@@ -1179,6 +1180,10 @@
 <Rule groupRelation="and">
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
 <ImageLoaded condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\desktop-trampoline\desktop-trampoline.exe</Image>
+<ImageLoaded condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\desktop-trampoline\desktop-trampoline.exe</ImageLoaded>
 </Rule>
 
 

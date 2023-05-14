@@ -598,6 +598,7 @@
 <Image condition="image">yara64.exe</Image>
 <Image condition="is">C:\Windows\System32\notepad.exe</Image>
 <Image condition="end with">\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
 
 <Image condition="contains">AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
 <Image condition="contains all">\AppData\Local\GitHubDesktop\;\resources\app\git\cmd\git.exe</Image>
@@ -1125,6 +1126,7 @@
 <Image condition="image">git.exe</Image>
 <Image condition="contains">\AppData\Local\Microsoft\OneDrive\</Image>
 <Image condition="contains all">C:\Program Files (x86)\ASUS\Update\;\Get-AppxVersion.exe</Image>
+<Image condition="is">C:\Windows\System32\ASUSACCI\ArmouryCrateKeyControl.exe</Image>
 
 <Rule groupRelation="and">
 <Image condition="image">powershell.exe</Image>
@@ -1173,6 +1175,10 @@
 <Rule groupRelation="and">
 <Image condition="contains all">C:\Windows\SysWOW64\WindowsPowerShell\;\powershell.exe</Image>
 <ImageLoaded condition="contains all">C:\Windows\assembly\;\System.Management.Automation.ni.dll</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
+<ImageLoaded condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</ImageLoaded>
 </Rule>
 
 
@@ -1878,6 +1884,7 @@
 <Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;\NVDisplay.Container.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
 <Image condition="is">C:\Program Files (x86)\ASUS\Update\AsusUpdate.exe</Image>
+<Image condition="is">C:\Windows\System32\smartscreen.exe</Image>
 
 <TargetObject condition="contains all">HKLM\System\CurrentControlSet\Services\;\Linkage</TargetObject>
 
@@ -2359,6 +2366,10 @@
 <Image condition="is">C:\Program Files\ESET\ESET Full Disk Encryption\efdeais.exe</Image>
 <Image condition="is">C:\Program Files\Advanced Monitoring Agent Network Management\NetworkManagement.exe</Image>
 <Image condition="is">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeClickToRun.exe</Image>
+<Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
+<Image condition="is">C:\Program Files\NVIDIA Corporation\Update Core\NvProfileUpdater64.exe</Image>
+<Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
+<Image condition="is">C:\Windows\System32\ASUSACCI\AsCheckASCI.exe</Image>
 <Image condition="contains">C:\Program Files\LGHUB\lghub_updater.exe</Image>
 <Image condition="begin with">C:\Windows\SystemApps\Microsoft.Windows.Searche</Image>
 <Image condition="image">TiWorker.exe</Image>

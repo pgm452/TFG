@@ -21,7 +21,11 @@ foreach ($event in $sysmon_events) {
 	    #$output = "wazuh-yara: INFO - File $target_filename matched the following YARA rules:`n$yara_output"
             #$output = "wazuh-yara: info: $yara_output"
 	    $output = "wazuh-yara: info: $yara_output`n"
-            $output >> $log_file_path 
+            $output | ConvertTo-Json -Compress
+            Write-Output $output
+
+            # Append the payload to the log file
+            $output| Out-File -Append -Encoding ascii $log_file_path
         }
     }
 }

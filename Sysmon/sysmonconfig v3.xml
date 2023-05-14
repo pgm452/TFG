@@ -1124,6 +1124,7 @@
 <Image condition="contains all">AppData\Local\NVIDIA\;\OAWrapper.exe</Image>
 <Image condition="image">git.exe</Image>
 <Image condition="contains">\AppData\Local\Microsoft\OneDrive\</Image>
+<Image condition="contains all">C:\Program Files (x86)\ASUS\Update\;\Get-AppxVersion.exe</Image>
 
 <Rule groupRelation="and">
 <Image condition="image">powershell.exe</Image>
@@ -1164,6 +1165,14 @@
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\System32\backgroundTaskHost.exe</Image>
 <ImageLoaded condition="is">C:\Windows\System32\vaultcli.dll</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="is">C:\Windows\System32\svchost.exe</Image>
+<ImageLoaded condition="is">C:\Windows\System32\taskschd.dll</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="contains all">C:\Windows\SysWOW64\WindowsPowerShell\;\powershell.exe</Image>
+<ImageLoaded condition="contains all">C:\Windows\assembly\;\System.Management.Automation.ni.dll</ImageLoaded>
 </Rule>
 
 
@@ -1457,6 +1466,7 @@
 <Image condition="is">C:\Program Files (x86)\ossec-agent\wazuh-agent.exe</Image>
 <Image condition="is">C:\Program Files\ESET\RemoteAdministrator\Agent\ERAAgent.exe</Image>
 <Image condition="is">C:\Program Files\Advanced Monitoring Agent Network Management\NetworkManagement.exe</Image>
+<Image condition="is">C:\Program Files (x86)\ossec-agent\chainsaw\chainsaw.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Roaming\Spotify\Spotify.exe</Image>
 <Image condition="begin with">C:\Program Files\Microsoft Office\root\Office16\</Image>
 <Image condition="begin with">C:\Program Files\ASUS\ARMOURY CRATE Service\ArmouryCrate.UserSessionHelper.exe</Image>
@@ -1867,6 +1877,7 @@
 <Image condition="contains all">C:\Users\;\AppData\Local\Temp\Sysmon.exe</Image>
 <Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;\NVDisplay.Container.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
+<Image condition="is">C:\Program Files (x86)\ASUS\Update\AsusUpdate.exe</Image>
 
 <TargetObject condition="contains all">HKLM\System\CurrentControlSet\Services\;\Linkage</TargetObject>
 

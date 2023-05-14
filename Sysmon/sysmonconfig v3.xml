@@ -597,6 +597,7 @@
 <CommandLine condition="contains">yara64.exe</CommandLine>
 <Image condition="image">yara64.exe</Image>
 <Image condition="is">C:\Windows\System32\notepad.exe</Image>
+<Image condition="end with">\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
 
 <Image condition="contains">AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
 <Image condition="contains all">\AppData\Local\GitHubDesktop\;\resources\app\git\cmd\git.exe</Image>
@@ -1055,6 +1056,8 @@
 <!--  Event ID 7 == Image Loaded - Excludes  -->
 <RuleGroup groupRelation="or">
 <ImageLoad onmatch="exclude">
+
+
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\System32\cscript.exe</Image>
 <OriginalFileName condition="is">scrobj.dll</OriginalFileName>
@@ -1141,6 +1144,14 @@
 <Rule groupRelation="and">
 <Image condition="end with">ESET\ESET Security\ekrn.exe</Image>
 <ImageLoaded condition="begin with">C:\Windows\Temp\</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="is">C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
+<ImageLoaded condition="is">C:\Windows\SysWOW64\taskschd.dll</ImageLoaded>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="end with">\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
+<ImageLoaded condition="contains all">\AppData\Local\Microsoft\EdgeUpdate\;.dll</ImageLoaded>
 </Rule>
 
 
@@ -1444,6 +1455,10 @@
 <Rule groupRelation="and">
 <Image condition="image">Powershell.exe</Image>
 <TargetFilename condition="contains all">C:\Windows\Temp\;.psm1</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="image">Powershell.exe</Image>
+<TargetFilename condition="is">C:\Windows\Temp\chainsaw_output1</TargetFilename>
 </Rule>
 <Rule groupRelation="and">
 <Image condition="image">Powershell.exe</Image>
@@ -2323,6 +2338,8 @@
 <Image condition="contains all">C:\Program Files (x86)\Microsoft\EdgeUpdate\Install\;setup.exe</Image>
 <Image condition="contains all">C:\Program Files (x86)\Microsoft\Edge\Application\;\Installer\setup.exe</Image>
 <Image condition="is">C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe</Image>
+<Image condition="is">C:\Windows\System32\mousocoreworker.exe</Image>
+<Image condition="is">C:\WINDOWS\system32\svchost.exe</Image>
 
 <TargetFilename condition="contains">AppData\Roaming\Opera Software\Opera Stable</TargetFilename>
 <TargetFilename condition="contains">AppData\Local\Packages\Microsoft</TargetFilename>
@@ -2399,6 +2416,7 @@
 <Image condition="image">opera.exe</Image>
 <TargetFilename condition="contains all">\AppData\Local\Opera Software\Opera Stable\Cache\</TargetFilename>
 </Rule>
+
 
 
 

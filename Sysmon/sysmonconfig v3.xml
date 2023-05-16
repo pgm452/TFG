@@ -590,6 +590,16 @@
 <ParentImage condition="is">C:\Windows\system32\SearchIndexer.exe</ParentImage>
 
 <!-- CUSTOM -->
+<!-- NVIDIA -->
+<Image condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\OAWrapper.exe</Image>
+<Image condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\NvOAWrapperCache.exe</Image>
+<!-- Windows -->
+<Image condition="is">C:\Windows\System32\schtasks.exe</Image>
+<!--Notepad -->
+<Image condition="is">C:\Program Files\Notepad++\notepad++.exe</Image>
+<!-- Opera -->
+<Image condition="end with">\AppData\Local\Programs\Opera\launcher.exe</Image>
+
 <CommandLine condition="contains">ConPrm14/Correo/MNprogram.exe</CommandLine>
 <CommandLine condition="contains">roadtech/roadtech/</CommandLine>
 <CommandLine condition="contains">http://10.0.0.6/ConPrm14/Correo/MNClient.exe</CommandLine>
@@ -1130,6 +1140,28 @@
 <Image condition="is">C:\Windows\System32\ASUSACCI\ArmouryCrateKeyControl.exe</Image>
 <Image condition="end with">\AppData\Local\Microsoft\OneDrive\OneDrive.exe</Image>
 
+<!-- MNProgram -->
+<Image condition="is">C:\MNProgram\Correo\MNprogram.exe</Image>
+<!-- Opera -->
+<Image condition="contains all">\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</Image>
+<!-- ASUS -->
+<Image condition="is">C:\Program Files (x86)\ASUSTeK COMPUTER INC\RefreshRateService\NotifyArmouryCrate.exe</Image>
+<Image condition="contains all">C:\Program Files\ASUS\ARMOURY CRATE Service\;.exe</Image>
+<Image condition="contains all">C:\Program Files\ASUS\ROG Live Service\FileOperator.exe</Image>
+<!-- Zero Tier -->
+<Image condition="end with">\AppData\Roaming\Programs\Zero Install\0install-win.exe</Image>
+<!-- Windows -->
+<Image condition="is">C:\Windows\system32\srtasks.exe</Image>
+<!-- clrjit.dll -->
+<ImageLoaded condition="contains all">C:\Windows\Microsoft.NET\Framework64\;\clrjit.dll</ImageLoaded>
+<!-- clr.dll -->
+<ImageLoaded condition="contains all">C:\Windows\Microsoft.NET\Framework64\;\clr.dll</ImageLoaded>
+<!-- Powershell -->
+<Rule groupRelation="and">
+<Image condition="image">powershell.exe</Image>
+<ImageLoaded condition="contains all">C:\Windows\assembly\NativeImages;.dll</ImageLoaded>
+</Rule>
+
 <Rule groupRelation="and">
 <Image condition="image">powershell.exe</Image>
 <ImageLoaded condition="contains all">C:\Windows\Microsoft.NET\Framework\;.dll</ImageLoaded>
@@ -1365,6 +1397,24 @@
 <TargetImage condition="is">C:\Program Files (x86)\ossec-agent\chainsaw\chainsaw.exe</TargetImage>
 <TargetImage condition="is">C:\Program Files\Git\cmd\git.exe</TargetImage>
 
+<!-- Zero Tier -->
+<SourceImage condition="end with">\AppData\Roaming\Programs\Zero Install\0install-win.exe</SourceImage>
+<!-- DeepL -->
+<SourceImage condition="contains all">\AppData\Local\0install.net\;\DeepL.exe</SourceImage>
+<!-- Opera -->
+<Rule groupRelation="and">
+<SourceImage condition="end with">\AppData\Local\Programs\Opera\launcher.exe</SourceImage>
+<TargetImage condition="end with">\AppData\Local\Programs\Opera\opera.exe</TargetImage>
+</Rule>
+<!-- NVIDIA -->
+<SourceImage condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\OAWrapper.exe</SourceImage>
+<!-- Opera -->
+<SourceImage condition="contains all">\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</SourceImage>
+<!-- N-Able -->
+<SourceImage condition="end with">\AppData\Local\Take Control Viewer\TakeControlRDLdr.exe</SourceImage>
+<!-- Office -->
+<SourceImage condition="end with">\AppData\Local\Microsoft\OneDrive\Update\OneDriveSetup.exe</SourceImage>
+
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
 <TargetImage condition="image">opera.exe</TargetImage>
@@ -1505,6 +1555,41 @@
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\active-responses</TargetFilename>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Roaming\Microsoft\Windows\Recent\ossec</TargetFilename>
 <TargetFilename condition="is">C:\Windows\Temp\chainsaw_output</TargetFilename>
+
+<!-- Logitech -->
+<Image condition="is">C:\Program Files\LGHUB\lghub_agent.exe</Image>
+<!-- Windows -->
+<Image condition="is">C:\Windows\system32\WerFault.exe</Image>
+<Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>
+<Image condition="is">C:\Windows\system32\CompatTelRunner.exe</Image>
+<Image condition="is">C:\Windows\system32\DllHost.exe</Image>
+<Image condition="is">C:\Windows\SysWOW64\SecEdit.exe</Image>
+<!-- VMware -->
+<Image condition="begin with">C:\Program Files (x86)\VMware\VMware Workstation\</Image>
+<!-- ESET -->
+<Image condition="begin with">C:\Program Files\ESET\</Image>
+<!-- EDGE -->
+<Image condition="contains all">C:\Program Files (x86)\Microsoft\EdgeWebView\Application\;\msedgewebview2.exe</Image>
+<!-- Opera -->
+<Rule groupRelation="and">
+<Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\opera.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\</TargetFilename>
+</Rule>
+<!-- Office -->
+<Rule groupRelation="and">
+<Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\;.tmp</TargetFilename>
+</Rule>
+<Rule groupRelation="and">
+<Image condition="contains all">C:\Users\;\AppData\Local\Microsoft\OneDrive\OneDriveStandaloneUpdater.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\;.tmp</TargetFilename>
+</Rule>
+<!-- Keepass -->
+<Rule groupRelation="and">
+<Image condition="image">KeePass.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\;.tmp</TargetFilename>
+</Rule>
+
 
 <Rule groupRelation="and">
 <Image condition="image">Powershell.exe</Image>
@@ -1909,8 +1994,45 @@
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
 <Image condition="is">C:\Program Files (x86)\ASUS\Update\AsusUpdate.exe</Image>
 <Image condition="is">C:\Windows\System32\smartscreen.exe</Image>
-
 <TargetObject condition="contains all">HKLM\System\CurrentControlSet\Services\;\Linkage</TargetObject>
+
+<!-- Windows -->
+<Image condition="is">C:\Windows\system32\dashost.exe</Image>
+<Image condition="is">C:\Windows\system32\SecurityHealthService.exe</Image>
+<Image condition="is">C:\Windows\SYSTEM32\netsh.exe</Image>
+<Image condition="is">C:\Windows\system32\csrss.exe</Image>
+<Image condition="contains all">C:\Windows\SystemApps\;\SearchApp.exe</Image>
+<!-- NVIDIA -->
+<Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
+<Image condition="is">C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe</Image>
+<Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
+<!-- ESET -->
+<Image condition="begin with">C:\Program Files\ESET\</Image>
+<!-- ASUS -->
+<Image condition="is">C:\Program Files\ASUS\ROG Live Service\ROGLiveService.exe</Image>
+<Image condition="is">C:\Program Files\ASUS\ARMOURY CRATE Service\ArmouryCrate.UserSessionHelper.exe</Image>
+<Image condition="is">C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe</Image>
+<!-- Google Drive -->
+<Image condition="contains all">C:\Program Files\Google\Drive File Stream\;\GoogleDriveFS.exe</Image>
+<!-- Microsoft Edge -->
+<Image condition="is">C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
+<!-- MNProgram -->
+<Image condition="is">C:\MNProgram\Correo\Agenda.exe</Image>
+<!-- FortiClient -->
+<Image condition="is">C:\Program Files\Fortinet\FortiClient\ipsec.exe</Image>
+<Image condition="is">C:\Program Files\Fortinet\FortiClient\FortiSSLVPNdaemon.exe</Image>
+<!-- OpenVPN -->
+<Image condition="is">C:\Program Files\OpenVPN Connect\OpenVPNConnect.exe</Image>
+<!-- ZeroTier -->
+<Image condition="is">C:\ProgramData\ZeroTier\One\zerotier-one_x64.exe</Image>
+<!-- Google -->
+<Image condition="contains all">C:\Program Files (x86)\Google\Update\Install\;\setup.exe</Image>
+<Image condition="contains all">C:\Program Files\Google\Drive File Stream\;\GoogleDriveFS.exe</Image>
+<!-- Office -->
+<Image condition="is">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeC2RClient.exe</Image>
+<Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
+<!-- Adobe -->
+<Image condition="is">C:\Program Files\Adobe\Acrobat DC\Acrobat\ADNotificationManager.exe</Image>
 
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>
@@ -1965,7 +2087,13 @@
 
 <!--  Event ID 15 == File Create Stream Hash - Excludes  -->
 <FileCreateStreamHash onmatch="exclude">
-		</FileCreateStreamHash>
+<!-- Teams TMP -->
+<Rule groupRelation="and">
+<Image condition="image">Teams.exe</Image>
+<TargetFilename condition="contains">\AppData\Roaming\Microsoft\Teams\tmp\</TargetFilename>
+</Rule>
+
+</FileCreateStreamHash>
 
 <!--  Event ID 17,18 == PipeEvent. Log Named pipe created & Named pipe connected - Includes  -->
 <RuleGroup groupRelation="or">

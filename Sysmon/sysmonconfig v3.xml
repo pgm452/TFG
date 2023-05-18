@@ -666,6 +666,9 @@
 <Image condition="is">TrustedInstaller.exe</Image> <!--Ignore setups-->
 <TargetFilename condition="contains">\NVIDIA\NvBackend\ApplicationOntology\</TargetFilename>
 
+<!-- ZeroTier -->
+<Image condition="end with">\AppData\Roaming\Programs\Zero Install\0install-win.exe</Image>
+
 </FileCreateTime>
 </RuleGroup>
 <!--  Event ID 3 == Network Connection - Includes  -->
@@ -892,6 +895,9 @@
 <DestinationHostname condition="end with">microsoft.com.nsatc.net</DestinationHostname>
 
 <!-- CUSTOM -->
+<!-- Office -->
+<Image condition="end with">\AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
+
 <DestinationIp condition="is">1.1.1.1</DestinationIp>
 <DestinationIp condition="is">8.8.8.8</DestinationIp>
 <DestinationIp condition="is">8.8.4.4</DestinationIp>
@@ -1142,8 +1148,10 @@
 
 <!-- MNProgram -->
 <Image condition="is">C:\MNProgram\Correo\MNprogram.exe</Image>
+<Image condition="is">C:\MNProgram\Correo\Agenda.exe</Image>
 <!-- Opera -->
 <Image condition="contains all">\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</Image>
+<Image condition="end with">\AppData\Local\Programs\Opera\launcher.exe</Image>
 <!-- ASUS -->
 <Image condition="is">C:\Program Files (x86)\ASUSTeK COMPUTER INC\RefreshRateService\NotifyArmouryCrate.exe</Image>
 <Image condition="contains all">C:\Program Files\ASUS\ARMOURY CRATE Service\;.exe</Image>
@@ -1152,6 +1160,9 @@
 <Image condition="end with">\AppData\Roaming\Programs\Zero Install\0install-win.exe</Image>
 <!-- Windows -->
 <Image condition="is">C:\Windows\system32\srtasks.exe</Image>
+<!-- Office -->
+<Image condition="is">C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE</Image>
+<Image condition="is">C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE</Image>
 <!-- clrjit.dll -->
 <ImageLoaded condition="contains all">C:\Windows\Microsoft.NET\Framework64\;\clrjit.dll</ImageLoaded>
 <!-- clr.dll -->
@@ -1402,6 +1413,7 @@
 <!-- DeepL -->
 <SourceImage condition="contains all">\AppData\Local\0install.net\;\DeepL.exe</SourceImage>
 <!-- Opera -->
+<SourceImage condition="end with">\AppData\Local\Programs\Opera\launcher.exe</SourceImage>
 <Rule groupRelation="and">
 <SourceImage condition="end with">\AppData\Local\Programs\Opera\launcher.exe</SourceImage>
 <TargetImage condition="end with">\AppData\Local\Programs\Opera\opera.exe</TargetImage>
@@ -1414,6 +1426,7 @@
 <SourceImage condition="end with">\AppData\Local\Take Control Viewer\TakeControlRDLdr.exe</SourceImage>
 <!-- Office -->
 <SourceImage condition="end with">\AppData\Local\Microsoft\OneDrive\Update\OneDriveSetup.exe</SourceImage>
+
 
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
@@ -1564,6 +1577,8 @@
 <Image condition="is">C:\Windows\system32\CompatTelRunner.exe</Image>
 <Image condition="is">C:\Windows\system32\DllHost.exe</Image>
 <Image condition="is">C:\Windows\SysWOW64\SecEdit.exe</Image>
+<Image condition="is">C:\WINDOWS\System32\poqexec.exe</Image>
+<Image condition="contains all">C:\WINDOWS\winsxs\amd64_microsoft-windows-servicingstack;\TiWorker.exe</Image>
 <!-- VMware -->
 <Image condition="begin with">C:\Program Files (x86)\VMware\VMware Workstation\</Image>
 <!-- ESET -->
@@ -1589,7 +1604,15 @@
 <Image condition="image">KeePass.exe</Image>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\;.tmp</TargetFilename>
 </Rule>
-
+<!-- FortiClient -->
+<Image condition="is">C:\Program Files\Fortinet\FortiClient\FCDBLog.exe</Image>
+<!-- Github -->
+<Image condition="end with">\AppData\Local\GitHubDesktop\Update.exe</Image>
+<!-- Nvidia -->
+<Rule groupRelation="and">
+<Image condition="contains all">C:\Users\;\AppData\Local\NVIDIA\NvBackend\</Image>
+<TargetFilename condition="contains">.tmp</TargetFilename>
+</Rule>
 
 <Rule groupRelation="and">
 <Image condition="image">Powershell.exe</Image>
@@ -2001,11 +2024,13 @@
 <Image condition="is">C:\Windows\system32\SecurityHealthService.exe</Image>
 <Image condition="is">C:\Windows\SYSTEM32\netsh.exe</Image>
 <Image condition="is">C:\Windows\system32\csrss.exe</Image>
+<Image condition="is">C:\WINDOWS\system32\services.exe</Image>
 <Image condition="contains all">C:\Windows\SystemApps\;\SearchApp.exe</Image>
 <!-- NVIDIA -->
 <Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
 <Image condition="is">C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe</Image>
 <Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
+<Image condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\OAWrapper.exe</Image>
 <!-- ESET -->
 <Image condition="begin with">C:\Program Files\ESET\</Image>
 <!-- ASUS -->
@@ -2018,6 +2043,7 @@
 <Image condition="is">C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
 <!-- MNProgram -->
 <Image condition="is">C:\MNProgram\Correo\Agenda.exe</Image>
+<Image condition="is">C:\MNProgram\Correo\MNprogram.exe</Image>
 <!-- FortiClient -->
 <Image condition="is">C:\Program Files\Fortinet\FortiClient\ipsec.exe</Image>
 <Image condition="is">C:\Program Files\Fortinet\FortiClient\FortiSSLVPNdaemon.exe</Image>
@@ -2025,6 +2051,7 @@
 <Image condition="is">C:\Program Files\OpenVPN Connect\OpenVPNConnect.exe</Image>
 <!-- ZeroTier -->
 <Image condition="is">C:\ProgramData\ZeroTier\One\zerotier-one_x64.exe</Image>
+<Image condition="end with">\AppData\Roaming\Programs\Zero Install\0install-win.exe</Image>
 <!-- Google -->
 <Image condition="contains all">C:\Program Files (x86)\Google\Update\Install\;\setup.exe</Image>
 <Image condition="contains all">C:\Program Files\Google\Drive File Stream\;\GoogleDriveFS.exe</Image>
@@ -2033,6 +2060,10 @@
 <Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
 <!-- Adobe -->
 <Image condition="is">C:\Program Files\Adobe\Acrobat DC\Acrobat\ADNotificationManager.exe</Image>
+<!-- VMWare -->
+<Image condition="end with">C:\Program Files (x86)\VMware\VMware Workstation\x64\vmware-vmx.exe</Image>
+<!-- Firefox -->
+<Image condition="is">C:\Program Files\Mozilla Firefox\default-browser-agent.exe</Image>
 
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>

@@ -41,9 +41,10 @@
 		<directories recursion_level="0" restrict="winrm.vbs$">%WINDIR%\System32</directories>
 		<directories realtime="yes">%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Startup</directories>
 		<ignore>%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini</ignore>
+		<ignore>C:\Users\*\Documents\virtual machines</ignore>
 		<!--<ignore type="sregex">.log$|.htm$|.jpg$|.png$|.chm$|.pnf$|.evtx$</ignore>
-													-->
-														-->
+																	-->
+																		-->
 		<!-- Windows registry entries to monitor. -->
 		<windows_registry>HKEY_LOCAL_MACHINE\Software\Classes\batfile</windows_registry>
 		<windows_registry>HKEY_LOCAL_MACHINE\Software\Classes\cmdfile</windows_registry>
@@ -57,7 +58,7 @@
 		<windows_registry arch="both">HKEY_LOCAL_MACHINE\Software\Policies</windows_registry>
 		<windows_registry>HKEY_LOCAL_MACHINE\Security</windows_registry>
 		<windows_registry arch="both">HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer</windows_registry>
-		<windows_registry>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services</windows_registry>
+		<!--<windows_registry>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services</windows_registry>-->
 		<windows_registry>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDLLs</windows_registry>
 		<windows_registry>HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurePipeServers\winreg</windows_registry>
 		<windows_registry arch="both">HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run</windows_registry>
@@ -195,7 +196,7 @@
 		<location>Security</location>
 		<log_format>eventchannel</log_format>
 	</localfile>
-													-->
+															-->
 	<localfile>
 		<location>Windows PowerShell</location>
 		<log_format>eventchannel</log_format>

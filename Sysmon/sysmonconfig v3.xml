@@ -595,10 +595,14 @@
 <Image condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\NvOAWrapperCache.exe</Image>
 <!-- Windows -->
 <Image condition="is">C:\Windows\System32\schtasks.exe</Image>
+<Image condition="is">C:\Windows\System32\WerFault.exe</Image>
 <!--Notepad -->
 <Image condition="is">C:\Program Files\Notepad++\notepad++.exe</Image>
 <!-- Opera -->
 <Image condition="end with">\AppData\Local\Programs\Opera\launcher.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\,\opera_crashreporter.exe</Image>
+<!-- MNProgram -->
+<Image condition="is">C:\MNProgram\Correo\MNprogram.exe</Image>
 
 <CommandLine condition="contains">ConPrm14/Correo/MNprogram.exe</CommandLine>
 <CommandLine condition="contains">roadtech/roadtech/</CommandLine>
@@ -897,6 +901,8 @@
 <!-- CUSTOM -->
 <!-- Office -->
 <Image condition="end with">\AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
+<!-- Github -->
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
 
 <DestinationIp condition="is">1.1.1.1</DestinationIp>
 <DestinationIp condition="is">8.8.8.8</DestinationIp>
@@ -1145,12 +1151,20 @@
 <Image condition="contains all">C:\Program Files (x86)\ASUS\Update\;\Get-AppxVersion.exe</Image>
 <Image condition="is">C:\Windows\System32\ASUSACCI\ArmouryCrateKeyControl.exe</Image>
 <Image condition="end with">\AppData\Local\Microsoft\OneDrive\OneDrive.exe</Image>
-
+<!-- N-Able -->
+<Image condition="is">C:\Program Files (x86)\Advanced Monitoring Agent GP\patchman\ExtProcess.exe</Image>
 <!-- MNProgram -->
 <Image condition="is">C:\MNProgram\Correo\MNprogram.exe</Image>
 <Image condition="is">C:\MNProgram\Correo\Agenda.exe</Image>
+<!-- ASUS -->
+<Image condition="is">C:\Program Files\ASUS\ARMOURY CRATE Service\ArmouryCrate.AppServiceBridge.exe</Image>
+<Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;\ASUSSystemAnalysis\</Image>
+<!-- Github -->
+<Image condition="end with">\AppData\Local\GitHubDesktop\Update.exe</Image>
 <!-- Opera -->
 <Image condition="contains all">\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\;\opera_crashreporter.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Temp\.opera\;\installer.exe</Image>
 <Image condition="end with">\AppData\Local\Programs\Opera\launcher.exe</Image>
 <!-- ASUS -->
 <Image condition="is">C:\Program Files (x86)\ASUSTeK COMPUTER INC\RefreshRateService\NotifyArmouryCrate.exe</Image>
@@ -1160,13 +1174,24 @@
 <Image condition="end with">\AppData\Roaming\Programs\Zero Install\0install-win.exe</Image>
 <!-- Windows -->
 <Image condition="is">C:\Windows\system32\srtasks.exe</Image>
+<Rule groupRelation="and">
+<Image condition="is">C:\Windows\System32\logman.exe</Image>
+<ImageLoaded condition="is">C:\Windows\System32\taskschd.dll</ImageLoaded>
+</Rule>
 <!-- Office -->
 <Image condition="is">C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE</Image>
 <Image condition="is">C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE</Image>
+<Image condition="is">C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE</Image>
+<Image condition="end with">\AppData\Local\Microsoft\Teams\Update.exe</Image>
+<Rule groupRelation="and">
+<Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
+<ImageLoaded condition="is">C:\Windows\System32\vaultcli.dll</ImageLoaded>
+</Rule>
 <!-- clrjit.dll -->
 <ImageLoaded condition="contains all">C:\Windows\Microsoft.NET\Framework64\;\clrjit.dll</ImageLoaded>
 <!-- clr.dll -->
 <ImageLoaded condition="contains all">C:\Windows\Microsoft.NET\Framework64\;\clr.dll</ImageLoaded>
+<ImageLoaded condition="contains all">C:\Windows\Microsoft.NET\Framework64\;\mscoreei.dll</ImageLoaded>
 <!-- Powershell -->
 <Rule groupRelation="and">
 <Image condition="image">powershell.exe</Image>
@@ -1407,7 +1432,6 @@
 <TargetImage condition="image">MNprogram.exe</TargetImage>
 <TargetImage condition="is">C:\Program Files (x86)\ossec-agent\chainsaw\chainsaw.exe</TargetImage>
 <TargetImage condition="is">C:\Program Files\Git\cmd\git.exe</TargetImage>
-
 <!-- Zero Tier -->
 <SourceImage condition="end with">\AppData\Roaming\Programs\Zero Install\0install-win.exe</SourceImage>
 <!-- DeepL -->
@@ -1426,6 +1450,9 @@
 <SourceImage condition="end with">\AppData\Local\Take Control Viewer\TakeControlRDLdr.exe</SourceImage>
 <!-- Office -->
 <SourceImage condition="end with">\AppData\Local\Microsoft\OneDrive\Update\OneDriveSetup.exe</SourceImage>
+<SourceImage condition="end with">\AppData\Local\Microsoft\Teams\Update.exe</SourceImage>
+<!-- Windows -->
+<SourceImage condition="is">C:\Windows\system32\WerFault.exe</SourceImage>
 
 
 <Rule groupRelation="and">
@@ -1578,9 +1605,12 @@
 <Image condition="is">C:\Windows\system32\DllHost.exe</Image>
 <Image condition="is">C:\Windows\SysWOW64\SecEdit.exe</Image>
 <Image condition="is">C:\WINDOWS\System32\poqexec.exe</Image>
+<Image condition="is">C:\Windows\system32\CompatTelRunner.exe</Image>
+<Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>
 <Image condition="contains all">C:\WINDOWS\winsxs\amd64_microsoft-windows-servicingstack;\TiWorker.exe</Image>
 <!-- VMware -->
 <Image condition="begin with">C:\Program Files (x86)\VMware\VMware Workstation\</Image>
+<Image condition="is">C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe</Image>
 <!-- ESET -->
 <Image condition="begin with">C:\Program Files\ESET\</Image>
 <!-- EDGE -->
@@ -1591,6 +1621,7 @@
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\</TargetFilename>
 </Rule>
 <!-- Office -->
+<Image condition="end with">\AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
 <Rule groupRelation="and">
 <Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\;.tmp</TargetFilename>
@@ -2025,6 +2056,10 @@
 <Image condition="is">C:\Windows\SYSTEM32\netsh.exe</Image>
 <Image condition="is">C:\Windows\system32\csrss.exe</Image>
 <Image condition="is">C:\WINDOWS\system32\services.exe</Image>
+<Image condition="is">C:\Windows\System32\sihclient.exe</Image>
+<Image condition="is">C:\Windows\System32\WaaSMedicAgent.exe</Image>
+<Image condition="is">C:\Windows\system32\dashost.exe</Image>
+<Image condition="is">C:\Windows\system32\WerFault.exe</Image>
 <Image condition="contains all">C:\Windows\SystemApps\;\SearchApp.exe</Image>
 <!-- NVIDIA -->
 <Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
@@ -2035,6 +2070,7 @@
 <Image condition="begin with">C:\Program Files\ESET\</Image>
 <!-- ASUS -->
 <Image condition="is">C:\Program Files\ASUS\ROG Live Service\ROGLiveService.exe</Image>
+<Image condition="is">C:\Program Files\ASUS\ROG Live Service\FileOperator.exe</Image>
 <Image condition="is">C:\Program Files\ASUS\ARMOURY CRATE Service\ArmouryCrate.UserSessionHelper.exe</Image>
 <Image condition="is">C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe</Image>
 <!-- Google Drive -->
@@ -2058,12 +2094,16 @@
 <!-- Office -->
 <Image condition="is">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeC2RClient.exe</Image>
 <Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
+<Image condition="is">C:\Program Files\Microsoft Office\root\VFS\ProgramFilesCommonX64\Microsoft Shared\Office16\operfmon.exe</Image>
 <!-- Adobe -->
 <Image condition="is">C:\Program Files\Adobe\Acrobat DC\Acrobat\ADNotificationManager.exe</Image>
 <!-- VMWare -->
 <Image condition="end with">C:\Program Files (x86)\VMware\VMware Workstation\x64\vmware-vmx.exe</Image>
 <!-- Firefox -->
 <Image condition="is">C:\Program Files\Mozilla Firefox\default-browser-agent.exe</Image>
+<Image condition="is">C:\Program Files\Mozilla Firefox\pingsender.exe</Image>
+<!-- Github -->
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\GitHubDesktop.exe</Image>
 
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>

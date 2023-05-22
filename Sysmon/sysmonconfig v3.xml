@@ -596,13 +596,21 @@
 <!-- Windows -->
 <Image condition="is">C:\Windows\System32\schtasks.exe</Image>
 <Image condition="is">C:\Windows\System32\WerFault.exe</Image>
+<Image condition="is">C:\Windows\SysWOW64\wbem\WmiPrvSE.exe</Image>
+<Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;.exe</Image>
 <!--Notepad -->
 <Image condition="is">C:\Program Files\Notepad++\notepad++.exe</Image>
 <!-- Opera -->
 <Image condition="end with">\AppData\Local\Programs\Opera\launcher.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\,\opera_crashreporter.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Temp\.opera\;\installer.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</Image>
 <!-- MNProgram -->
 <Image condition="is">C:\MNProgram\Correo\MNprogram.exe</Image>
+<!-- Mega -->
+<Image condition="begin with">\AppData\Local\MEGAsync\MEGAupdater.exe</Image>
+<!-- N-Able -->
+<Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
 
 <CommandLine condition="contains">ConPrm14/Correo/MNprogram.exe</CommandLine>
 <CommandLine condition="contains">roadtech/roadtech/</CommandLine>
@@ -672,6 +680,8 @@
 
 <!-- ZeroTier -->
 <Image condition="end with">\AppData\Roaming\Programs\Zero Install\0install-win.exe</Image>
+<!-- DeepL -->
+<Image condition="contains all">C:\Users\;\AppData\Local\0install.net\implementations\;\DeepL.exe</Image>
 
 </FileCreateTime>
 </RuleGroup>
@@ -1197,6 +1207,11 @@
 <Image condition="image">powershell.exe</Image>
 <ImageLoaded condition="contains all">C:\Windows\assembly\NativeImages;.dll</ImageLoaded>
 </Rule>
+<!-- Python -->
+<Image condition="contains all">C:\Program Files\WindowsApps\PythonSoftwareFoundation;python3;.exe</Image>
+<!-- Visual Studio -->
+<Image condition="begin with">\AppData\Local\Programs\Microsoft VS Code\Code.exe</Image>
+
 
 <Rule groupRelation="and">
 <Image condition="image">powershell.exe</Image>
@@ -1607,7 +1622,14 @@
 <Image condition="is">C:\WINDOWS\System32\poqexec.exe</Image>
 <Image condition="is">C:\Windows\system32\CompatTelRunner.exe</Image>
 <Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>
+<Image condition="is">C:\Windows\system32\cleanmgr.exe</Image>
+<Image condition="is">C:\Windows\system32\makecab.exe</Image>
 <Image condition="contains all">C:\WINDOWS\winsxs\amd64_microsoft-windows-servicingstack;\TiWorker.exe</Image>
+<TargetFilename condition="contains all">C:\Windows\Logs\WindowsUpdate\WindowsUpdate;.etl</TargetFilename>
+<Rule groupRelation="and">
+<Image condition="is">C:\Windows\system32\cleanmgr.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\</TargetFilename>
+</Rule>
 <!-- VMware -->
 <Image condition="begin with">C:\Program Files (x86)\VMware\VMware Workstation\</Image>
 <Image condition="is">C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe</Image>
@@ -1622,6 +1644,7 @@
 </Rule>
 <!-- Office -->
 <Image condition="end with">\AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
+<Image condition="begin with">C:\Program Files\Microsoft OneDrive\</Image>
 <Rule groupRelation="and">
 <Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\;.tmp</TargetFilename>
@@ -1644,6 +1667,20 @@
 <Image condition="contains all">C:\Users\;\AppData\Local\NVIDIA\NvBackend\</Image>
 <TargetFilename condition="contains">.tmp</TargetFilename>
 </Rule>
+<!-- Wazuh -->
+<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\</TargetFilename>
+<!-- Python -->
+<TargetFilename condition="begin with">C:\Program Files\WindowsApps\PythonSoftwareFoundation</TargetFilename>
+<!-- Winrar -->
+<Image condition="is">C:\Program Files\WinRAR\WinRAR.exe</Image>
+<!-- Visual Studio -->
+<Image condition="end with">\AppData\Local\Programs\Microsoft VS Code\Code.exe</Image>
+<!-- N-Able -->
+<Image condition="begin with">C:\ProgramData\AdvancedMonitoringAgentNetworkManagement\</Image>
+<!-- Adobe -->
+<Image condition="begin with">C:\Program Files (x86)\Common Files\Adobe\</Image>
+<!-- Epic Games -->
+<Image condition="begin with">C:\Program Files (x86)\Epic Games\</Image>
 
 <Rule groupRelation="and">
 <Image condition="image">Powershell.exe</Image>
@@ -2060,12 +2097,16 @@
 <Image condition="is">C:\Windows\System32\WaaSMedicAgent.exe</Image>
 <Image condition="is">C:\Windows\system32\dashost.exe</Image>
 <Image condition="is">C:\Windows\system32\WerFault.exe</Image>
+<Image condition="is">C:\Windows\system32\dwm.exe</Image>
+<Image condition="is">C:\Windows\system32\cleanmgr.exe</Image>
 <Image condition="contains all">C:\Windows\SystemApps\;\SearchApp.exe</Image>
+<Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;.exe</Image>
 <!-- NVIDIA -->
 <Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
 <Image condition="is">C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe</Image>
 <Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
 <Image condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\OAWrapper.exe</Image>
+<Image condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\NvOAWrapperCache.exe</Image>
 <!-- ESET -->
 <Image condition="begin with">C:\Program Files\ESET\</Image>
 <!-- ASUS -->
@@ -2073,6 +2114,7 @@
 <Image condition="is">C:\Program Files\ASUS\ROG Live Service\FileOperator.exe</Image>
 <Image condition="is">C:\Program Files\ASUS\ARMOURY CRATE Service\ArmouryCrate.UserSessionHelper.exe</Image>
 <Image condition="is">C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe</Image>
+<Image condition="is">C:\Program Files (x86)\LightingService\LightingService.exe</Image>
 <!-- Google Drive -->
 <Image condition="contains all">C:\Program Files\Google\Drive File Stream\;\GoogleDriveFS.exe</Image>
 <!-- Microsoft Edge -->
@@ -2093,10 +2135,11 @@
 <Image condition="contains all">C:\Program Files\Google\Drive File Stream\;\GoogleDriveFS.exe</Image>
 <!-- Office -->
 <Image condition="is">C:\Program Files\Common Files\Microsoft Shared\ClickToRun\OfficeC2RClient.exe</Image>
-<Image condition="is">C:\Program Files\Microsoft OneDrive\OneDrive.exe</Image>
+<Image condition="begin with">C:\Program Files\Microsoft OneDrive\</Image>
 <Image condition="is">C:\Program Files\Microsoft Office\root\VFS\ProgramFilesCommonX64\Microsoft Shared\Office16\operfmon.exe</Image>
 <!-- Adobe -->
 <Image condition="is">C:\Program Files\Adobe\Acrobat DC\Acrobat\ADNotificationManager.exe</Image>
+<Image condition="begin with">C:\Program Files (x86)\Common Files\Adobe\</Image>
 <!-- VMWare -->
 <Image condition="end with">C:\Program Files (x86)\VMware\VMware Workstation\x64\vmware-vmx.exe</Image>
 <!-- Firefox -->
@@ -2104,6 +2147,13 @@
 <Image condition="is">C:\Program Files\Mozilla Firefox\pingsender.exe</Image>
 <!-- Github -->
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\GitHubDesktop.exe</Image>
+<!-- DeepL -->
+<Image condition="contains all">C:\Users\;\AppData\Local\0install.net\implementations\;\DeepL.exe</Image>
+<!-- Opera -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</Image>
+<!-- Epic Games -->
+<Image condition="begin with">C:\Program Files (x86)\Epic Games\</Image>
+
 
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>
@@ -2163,6 +2213,8 @@
 <Image condition="image">Teams.exe</Image>
 <TargetFilename condition="contains">\AppData\Roaming\Microsoft\Teams\tmp\</TargetFilename>
 </Rule>
+<!-- Windows -->
+<Image condition="is">C:\Windows\System32\RuntimeBroker.exe</Image>
 
 </FileCreateStreamHash>
 
@@ -2624,6 +2676,8 @@
 <TargetFilename condition="begin with"> C:\Program Files\WindowsApps\Deleted\Microsoft.SkypeApp</TargetFilename>
 <TargetFilename condition="begin with">C:\$Recycle.Bin\</TargetFilename>
 
+<!-- Wazuh -->
+<TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\</TargetFilename>
 
 <Rule groupRelation="and">
 <Image condition="image">MicrosoftEdgeUpdate.exe</Image>

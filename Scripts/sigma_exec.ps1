@@ -14,23 +14,23 @@
 $ErrorActionPreference = "SilentlyContinue"
 
 # Define the destination folder for the SIGMA repository
-$repo_path= "C:\Program Files (x86)\ossec-agent\chainsaw\sigma"
+$repo_path= "C:\Program Files (x86)\ossec-agent\sigma\rules"
 
 # Analyse events recorded in last 5 Minutes. Convert Start Date to Timestamp
 $start_date = (Get-Date).AddMinutes(-5)
 $from = Get-Date -Date $start_date -UFormat '+%Y-%m-%dT%H:%M:%S'
 
 # Create Chainsaw Output Folder if it doesn't exist
-$chainsaw_output = "$env:TMP\chainsaw_output"
+$chainsaw_output = "C:\Program Files (x86)\ossec-agent\tmp\chainsaw_output"
 If(!(test-path $chainsaw_output)) {
     New-Item -ItemType Directory -Force -Path $chainsaw_output
 }
 
 # Windows Sigma Path
-$windows_path = "C:\Program Files (x86)\ossec-agent\chainsaw\sigma\rules\windows"
+$windows_path = "C:\Program Files (x86)\ossec-agent\sigma\rules\rules\windows"
 
 # Run Chainsaw and store JSONs in TMP folder
-& 'C:\Program Files (x86)\ossec-agent\chainsaw\chainsaw.exe' hunt C:\Windows\System32\winevt -s $windows_path --mapping 'C:\Program Files (x86)\ossec-agent\chainsaw\mappings\sigma-event-logs-all.yml' --from $from --output $env:TMP\chainsaw_output\results.json --json --level high --level critical
+& 'C:\Program Files (x86)\ossec-agent\sigma\chainsaw.exe' hunt C:\Windows\System32\winevt -s $windows_path --mapping 'C:\Program Files (x86)\ossec-agent\sigma\mappings\sigma-event-logs-all.yml' --from $from --output 'C:\Program Files (x86)\ossec-agent\tmp\chainsaw_output\results.json' --json --level high --level critical
 
 # Convert JSON to new line entry for every 'group'
 function Convert-JsonToNewLine($json) {
@@ -69,4 +69,4 @@ Get-ChildItem $env:TMP\chainsaw_output -Filter *.json | Foreach-Object {
 }
 
 # Remove TMP JSON Folder
-rm -r $env:TMP\chainsaw_output
+rm -r 'C:\Program Files (x86)\ossec-agent\tmp\chainsaw_output'

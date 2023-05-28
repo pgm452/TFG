@@ -616,6 +616,8 @@
 <Image condition="end with">\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
 <!-- MNProgram -->
 <Image condition="begin with">C:\MNProgram\</Image>
+<CommandLine condition="end with">192.168.1.222 http://192.168.1.222/ConPrm14/Correo/MNClient.exe</CommandLine>
+<CommandLine condition="end with">10.0.0.6 http://10.0.0.6/ConPrm14/Correo/MNClient.exe</CommandLine>
 <!-- Mega -->
 <Image condition="contains all">C:\Users\;\AppData\Local\MEGAsync\</Image>
 <!-- N-Able -->
@@ -638,7 +640,8 @@
 <!-- N-Able -->
 <Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
-
+<!-- Logitech -->
+<Image condition="begin with">C:\Program Files\LGHUB\</Image>
 
 <CommandLine condition="contains">roadtech/roadtech/</CommandLine>
 <Image condition="is">C:\Windows\System32\wbem\WmiPrvSE.exe</Image>
@@ -684,6 +687,8 @@
 <!-- N-Able -->
 <Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
+<!-- Logitech -->
+<Image condition="begin with">C:\Program Files\LGHUB\</Image>
 
 </FileCreateTime>
 </RuleGroup>
@@ -1183,7 +1188,8 @@
 <Image condition="contains all">\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\;\opera_crashreporter.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Temp\.opera\;\installer.exe</Image>
-<Image condition="end with">\AppData\Local\Programs\Opera\launcher.exe</Image>
+<!-- Firefox -->
+<Image condition="begin with">C:\Program Files\Mozilla Firefox\</Image>
 <!-- ASUS -->
 <Image condition="is">C:\Program Files (x86)\ASUSTeK COMPUTER INC\RefreshRateService\NotifyArmouryCrate.exe</Image>
 <Image condition="contains all">C:\Program Files\ASUS\ARMOURY CRATE Service\;.exe</Image>
@@ -1224,7 +1230,8 @@
 <Image condition="begin with">\AppData\Local\Programs\Microsoft VS Code\Code.exe</Image>
 <!-- Postman -->
 <Image condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</Image>
-
+<!-- Logitech -->
+<Image condition="begin with">C:\Program Files\LGHUB\</Image>
 
 <Rule groupRelation="and">
 <Image condition="image">powershell.exe</Image>
@@ -1470,6 +1477,8 @@
 <SourceImage condition="end with">\AppData\Local\Programs\Opera\launcher.exe</SourceImage>
 <TargetImage condition="end with">\AppData\Local\Programs\Opera\opera.exe</TargetImage>
 </Rule>
+<!-- Firefox -->
+<SourceImage condition="begin with">C:\Program Files\Mozilla Firefox\</SourceImage>
 <!-- NVIDIA -->
 <SourceImage condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\OAWrapper.exe</SourceImage>
 <!-- Opera -->
@@ -1486,6 +1495,14 @@
 <!-- N-Able -->
 <SourceImage condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</SourceImage>
 <SourceImage condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</SourceImage>
+<!-- Logitech -->
+<SourceImage condition="begin with">C:\Program Files\LGHUB\</SourceImage>
+<!-- Wazuh -->
+<Rule groupRelation="and">
+<SourceImage condition="is">C:\Windows\SysWOW64\WindowsPowerShell\v1.0\Powershell.exe</SourceImage>
+<TargetImage condition="begin with">C:\Program Files (x86)\ossec-agent\</TargetImage>
+</Rule>
+
 
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
@@ -2169,10 +2186,9 @@
 <!-- VMWare -->
 <Image condition="end with">C:\Program Files (x86)\VMware\VMware Workstation\x64\vmware-vmx.exe</Image>
 <!-- Firefox -->
-<Image condition="is">C:\Program Files\Mozilla Firefox\default-browser-agent.exe</Image>
-<Image condition="is">C:\Program Files\Mozilla Firefox\pingsender.exe</Image>
+<Image condition="begin with">C:\Program Files\Mozilla Firefox\</Image>
 <!-- Github -->
-<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\GitHubDesktop.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\</Image>
 <!-- DeepL -->
 <Image condition="contains all">C:\Users\;\AppData\Local\0install.net\implementations\;\DeepL.exe</Image>
 <!-- Opera -->
@@ -2184,7 +2200,8 @@
 <!-- N-Able -->
 <Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
-
+<!-- Logitech -->
+<Image condition="begin with">C:\Program Files\LGHUB\</Image>
 
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>
@@ -2602,6 +2619,15 @@
 <QueryName condition="end with">.spotify.com</QueryName>
 <QueryName condition="end with">.spotify.map.fastly.net</QueryName>
 <Image condition="contains all">C:\Windows\SystemApps\Microsoft.Windows.Search;SearchApp.exe</Image>
+
+<!-- CUSTOM -->
+<!-- Office -->
+<Image condition="begin with">C:\Program Files\Common Files\microsoft shared\</Image>
+<!-- Google -->
+<Image condition="begin with">C:\Program Files\Google\</Image>
+<!-- Github -->
+<QueryName condition="is">api.github.com</QueryName>
+
 </DnsQuery>
 </RuleGroup>
 

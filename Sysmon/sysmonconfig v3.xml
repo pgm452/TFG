@@ -597,56 +597,51 @@
 <Image condition="is">C:\Windows\System32\schtasks.exe</Image>
 <Image condition="is">C:\Windows\System32\WerFault.exe</Image>
 <Image condition="is">C:\Windows\SysWOW64\wbem\WmiPrvSE.exe</Image>
+<Image condition="is">C:\Windows\system32\MRT.exe</Image>
+<Image condition="is">C:\Windows\system32\wuauclt.exe</Image>
 <Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;.exe</Image>
 <!--Notepad -->
 <Image condition="is">C:\Program Files\Notepad++\notepad++.exe</Image>
 <!-- Opera -->
 <Image condition="end with">\AppData\Local\Programs\Opera\launcher.exe</Image>
-<Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\,\opera_crashreporter.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\;\opera_crashreporter.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Temp\.opera\;\installer.exe</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</Image>
-<!-- MNProgram -->
-<Image condition="is">C:\MNProgram\Correo\MNprogram.exe</Image>
-<!-- Mega -->
-<Image condition="begin with">\AppData\Local\MEGAsync\MEGAupdater.exe</Image>
-<!-- N-Able -->
-<Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
-
-<CommandLine condition="contains">ConPrm14/Correo/MNprogram.exe</CommandLine>
-<CommandLine condition="contains">roadtech/roadtech/</CommandLine>
-<CommandLine condition="contains">http://10.0.0.6/ConPrm14/Correo/MNClient.exe</CommandLine>
-<CommandLine condition="contains">http://192.168.1.222/ConPrm14/Correo/MNClient.exe</CommandLine>
-<CommandLine condition="contains">yara64.exe</CommandLine>
-<Image condition="image">yara64.exe</Image>
-<Image condition="is">C:\Windows\System32\notepad.exe</Image>
-<Image condition="end with">\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
-<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
-<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\desktop-trampoline\desktop-trampoline.exe</Image>
-
-<Image condition="contains">AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
-<Image condition="contains all">\AppData\Local\GitHubDesktop\;\resources\app\git\cmd\git.exe</Image>
-<Image condition="contains all">\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git.exe</Image>
-<Image condition="is">C:\Windows\System32\wbem\WmiPrvSE.exe</Image>
-<Image condition="contains all">AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
-<Image condition="is">C:\Program Files\Veeam\Endpoint Backup\Veeam.EndPoint.Manager.exe</Image>
-<Image condition="is">C:\Program Files (x86)\ossec-agent\yara\yara64.exe</Image>
-
-<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\yara_exec.ps1"</ParentCommandLine>
-<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\yara_rules_update.ps1"</ParentCommandLine>
-<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sigma_exec.ps1"</ParentCommandLine>
-<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sigma_rules_update.ps1"</ParentCommandLine>
-<ParentCommandLine condition="is">Powershell.exe -executionpolicy bypass -File "C:\Program Files (x86)\ossec-agent\active-response\bin\sysmonupdate.ps1"</ParentCommandLine>
 
 <Rule groupRelation="and">
 <ParentImage condition="image">opera.exe</ParentImage>
 <ParentCommandLine condition="contains">--ran-launcher --started-from-shortcut</ParentCommandLine>
 </Rule>
+<!-- Edge -->
+<Image condition="end with">\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
+<!-- MNProgram -->
+<Image condition="begin with">C:\MNProgram\</Image>
+<!-- Mega -->
+<Image condition="contains all">C:\Users\;\AppData\Local\MEGAsync\</Image>
+<!-- N-Able -->
+<Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
+<!-- Wazuh -->
+<Image condition="begin with">C:\Program Files (x86)\ossec-agent\</Image>
+<!-- Office -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Microsoft\Teams\;\Teams.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Microsoft\OneDrive\;\FileCoAuth.exe</Image>
+<!-- Github -->
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\;\git-remote-https.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\;\desktop-trampoline.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\;\git.exe</Image>
+<!-- Veeam -->
+<Image condition="begin with">C:\Program Files\Veeam\Endpoint Backup\</Image>
+<!-- Notepad -->
+<Image condition="is">C:\Windows\System32\notepad.exe</Image>
+<!-- Postman -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</Image>
+<!-- N-Able -->
+<Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
 
-<Rule groupRelation="and">
-<Image condition="image">notepad.exe</Image>
-<CommandLine condition="contains">C:\Program Files (x86)\ossec-agent\</CommandLine>
-</Rule>
 
+<CommandLine condition="contains">roadtech/roadtech/</CommandLine>
+<Image condition="is">C:\Windows\System32\wbem\WmiPrvSE.exe</Image>
 </ProcessCreate>
 </RuleGroup>
 <!--  Event ID 2 == File Creation Time - Includes  -->
@@ -684,6 +679,11 @@
 <Image condition="contains all">C:\Users\;\AppData\Local\0install.net\implementations\;\DeepL.exe</Image>
 <!-- Github -->
 <Image condition="contains">\AppData\Local\GitHubDesktop\</Image>
+<!-- Postman -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</Image>
+<!-- N-Able -->
+<Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
 
 </FileCreateTime>
 </RuleGroup>
@@ -915,6 +915,11 @@
 <Image condition="end with">\AppData\Local\Microsoft\Teams\current\Teams.exe</Image>
 <!-- Github -->
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
+<!-- Postman -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</Image>
+<!-- N-Able -->
+<Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
 
 <DestinationIp condition="is">1.1.1.1</DestinationIp>
 <DestinationIp condition="is">8.8.8.8</DestinationIp>
@@ -1164,7 +1169,8 @@
 <Image condition="is">C:\Windows\System32\ASUSACCI\ArmouryCrateKeyControl.exe</Image>
 <Image condition="end with">\AppData\Local\Microsoft\OneDrive\OneDrive.exe</Image>
 <!-- N-Able -->
-<Image condition="is">C:\Program Files (x86)\Advanced Monitoring Agent GP\patchman\ExtProcess.exe</Image>
+<Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
 <!-- MNProgram -->
 <Image condition="is">C:\MNProgram\Correo\MNprogram.exe</Image>
 <Image condition="is">C:\MNProgram\Correo\Agenda.exe</Image>
@@ -1186,6 +1192,9 @@
 <Image condition="end with">\AppData\Roaming\Programs\Zero Install\0install-win.exe</Image>
 <!-- Windows -->
 <Image condition="is">C:\Windows\system32\srtasks.exe</Image>
+<Image condition="is">C:\Windows\system32\MRT.exe</Image>
+<Image condition="is">C:\Windows\system32\wuauclt.exe</Image>
+<Image condition="begin with">C:\Windows\Temp\</Image>
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\System32\logman.exe</Image>
 <ImageLoaded condition="is">C:\Windows\System32\taskschd.dll</ImageLoaded>
@@ -1213,6 +1222,8 @@
 <Image condition="contains all">C:\Program Files\WindowsApps\PythonSoftwareFoundation;python3;.exe</Image>
 <!-- Visual Studio -->
 <Image condition="begin with">\AppData\Local\Programs\Microsoft VS Code\Code.exe</Image>
+<!-- Postman -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</Image>
 
 
 <Rule groupRelation="and">
@@ -1470,7 +1481,11 @@
 <SourceImage condition="end with">\AppData\Local\Microsoft\Teams\Update.exe</SourceImage>
 <!-- Windows -->
 <SourceImage condition="is">C:\Windows\system32\WerFault.exe</SourceImage>
-
+<!-- Postman -->
+<SourceImage condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</SourceImage>
+<!-- N-Able -->
+<SourceImage condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</SourceImage>
+<SourceImage condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</SourceImage>
 
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
@@ -1626,6 +1641,8 @@
 <Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>
 <Image condition="is">C:\Windows\system32\cleanmgr.exe</Image>
 <Image condition="is">C:\Windows\system32\makecab.exe</Image>
+<Image condition="is">C:\Windows\system32\MRT.exe</Image>
+<Image condition="is">C:\Windows\system32\wuauclt.exe</Image>
 <Image condition="contains all">C:\WINDOWS\winsxs\amd64_microsoft-windows-servicingstack;\TiWorker.exe</Image>
 <TargetFilename condition="contains all">C:\Windows\Logs\WindowsUpdate\WindowsUpdate;.etl</TargetFilename>
 <Rule groupRelation="and">
@@ -1679,10 +1696,15 @@
 <Image condition="end with">\AppData\Local\Programs\Microsoft VS Code\Code.exe</Image>
 <!-- N-Able -->
 <Image condition="begin with">C:\ProgramData\AdvancedMonitoringAgentNetworkManagement\</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
 <!-- Adobe -->
 <Image condition="begin with">C:\Program Files (x86)\Common Files\Adobe\</Image>
 <!-- Epic Games -->
 <Image condition="begin with">C:\Program Files (x86)\Epic Games\</Image>
+<!-- Postman -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</Image>
+<!-- ?¿?¿? -->
+<Image condition="begin with">C:\ProgramData\MspPlatform\PME\ThirdPartyPatch\Downloads\</Image>
 
 <Rule groupRelation="and">
 <Image condition="image">Powershell.exe</Image>
@@ -2087,6 +2109,7 @@
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\;\resources\app\git\mingw64\bin\git-remote-https.exe</Image>
 <Image condition="is">C:\Program Files (x86)\ASUS\Update\AsusUpdate.exe</Image>
 <Image condition="is">C:\Windows\System32\smartscreen.exe</Image>
+<Image condition="is">C:\Windows\system32\wuauclt.exe</Image>
 <TargetObject condition="contains all">HKLM\System\CurrentControlSet\Services\;\Linkage</TargetObject>
 
 <!-- Windows -->
@@ -2101,6 +2124,7 @@
 <Image condition="is">C:\Windows\system32\WerFault.exe</Image>
 <Image condition="is">C:\Windows\system32\dwm.exe</Image>
 <Image condition="is">C:\Windows\system32\cleanmgr.exe</Image>
+<Image condition="is">C:\Windows\system32\MRT.exe</Image>
 <Image condition="contains all">C:\Windows\SystemApps\;\SearchApp.exe</Image>
 <Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;.exe</Image>
 <!-- NVIDIA -->
@@ -2155,6 +2179,11 @@
 <Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</Image>
 <!-- Epic Games -->
 <Image condition="begin with">C:\Program Files (x86)\Epic Games\</Image>
+<!-- Postman -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</Image>
+<!-- N-Able -->
+<Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
 
 
 <Rule groupRelation="and">
@@ -2678,8 +2707,18 @@
 <TargetFilename condition="begin with"> C:\Program Files\WindowsApps\Deleted\Microsoft.SkypeApp</TargetFilename>
 <TargetFilename condition="begin with">C:\$Recycle.Bin\</TargetFilename>
 
+<!-- Windows -->
+<Image condition="is">C:\Windows\system32\wuauclt.exe</Image>
 <!-- Wazuh -->
 <TargetFilename condition="begin with">C:\Program Files (x86)\ossec-agent\</TargetFilename>
+<!-- Postman -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</Image>
+<!-- N-Able -->
+<Image condition="begin with">C:\Program Files (x86)\Advanced Monitoring Agent GP\</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
+<!-- ?¿?¿? -->
+<Image condition="begin with">C:\ProgramData\MspPlatform\PME\ThirdPartyPatch\Downloads\</Image>
+
 
 <Rule groupRelation="and">
 <Image condition="image">MicrosoftEdgeUpdate.exe</Image>

@@ -1,0 +1,8 @@
+<group name="rule_exclusion">
+ <rule id="750001" level="1">
+    <if_group>sysmon_event1</if_group>
+    <field name="data_commandLine">http://192.168.1.222/ConPrm14/Correo/MNprogram.exe$|http://10.0.0.6/ConPrm14/Correo/MNprogram.exe</field>    
+    <description>Exclude MNProgram</description>
+    <options>no_full_log</options>
+ </rule>
+</group>

@@ -4,10 +4,8 @@ $file = "C:\Program Files (x86)\ossec-agent\active-response\active-responses.log
 
 # Create the destination folder if it does not exist
 if(!(Test-Path -Path $output)){
-    New-Item -ItemType Directory -Path $output | Out-Null
-    New-Item -ItemType Directory -Path $output\yara | Out-Null
+    New-Item -ItemType Directory -Path $output\rules | Out-Null
 }else{
-    Remove-Item -Recurse -Force $output\*
     New-Item -ItemType Directory -Path $output\rules | Out-Null
 }
 

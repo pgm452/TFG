@@ -49,7 +49,7 @@
 <OriginalFileName name="technique_id=T1218.004,technique_name=InstallUtil" condition="is">InstallUtil.exe</OriginalFileName>
 <CommandLine name="technique_id=T1218.004,technique_name=InstallUtil" condition="contains all">/logfile=;/LogToConsole=false;/U</CommandLine>
 </Rule>
-<OriginalFileName name="technique_id=T1218.002,technique_name=rundll32.exe" condition="contains">rundll32.exe</OriginalFileName>
+<!--<OriginalFileName name="technique_id=T1218.002,technique_name=rundll32.exe" condition="contains">rundll32.exe</OriginalFileName>-->
 <OriginalFileName name="technique_id=T1546.008,technique_name=Windows Error Reporting" condition="contains">werfault.exe</OriginalFileName>
 <OriginalFileName name="technique_id=T1033,technique_name=System Owner/User Discovery" condition="is">whoami.exe</OriginalFileName>
 <OriginalFileName name="technique_id=T1016,technique_name=System Network Configuration Discovery" condition="is">ipconfig.exe</OriginalFileName>
@@ -308,7 +308,7 @@
 <CommandLine name="technique_id=T1027,technique_name=Obfuscated Files or Information" condition="contains">FromBase64</CommandLine>
 <CommandLine name="technique_id=T1027,technique_name=Obfuscated Files or Information" condition="contains">gzip</CommandLine>
 <CommandLine name="technique_id=T1027,technique_name=Obfuscated Files or Information" condition="contains">decompress</CommandLine>
-<CommandLine name="technique_id=T1027,technique_name=Obfuscated Files or Information" condition="contains">http</CommandLine>
+<!--<CommandLine name="technique_id=T1027,technique_name=Obfuscated Files or Information" condition="contains">http</CommandLine>-->
 <CommandLine name="technique_id=T1027,technique_name=Obfuscated Files or Information" condition="contains">replace</CommandLine>
 <Image name="technique_id=T1218,technique_name=Signed Binary Proxy Execution" condition="image">SyncAppvPublishingServer.exe</Image>
 <OriginalFileName name="technique_id=T1057,technique_name=Process Discovery" condition="is">PsList.exe</OriginalFileName>
@@ -616,8 +616,8 @@
 <Image condition="end with">\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe</Image>
 <!-- MNProgram -->
 <Image condition="begin with">C:\MNProgram\</Image>
-<CommandLine condition="end with">192.168.1.222 http://192.168.1.222/ConPrm14/Correo/MNClient.exe</CommandLine>
-<CommandLine condition="end with">10.0.0.6 http://10.0.0.6/ConPrm14/Correo/MNClient.exe</CommandLine>
+<CommandLine condition="contains">http://192.168.1.222/ConPrm14/Correo/MNClient.exe</CommandLine>
+<CommandLine condition="contains">http://10.0.0.6/ConPrm14/Correo/MNClient.exe</CommandLine>
 <!-- Mega -->
 <Image condition="contains all">C:\Users\;\AppData\Local\MEGAsync\</Image>
 <!-- N-Able -->
@@ -1180,16 +1180,18 @@
 <Image condition="is">C:\MNProgram\Correo\MNprogram.exe</Image>
 <Image condition="is">C:\MNProgram\Correo\Agenda.exe</Image>
 <!-- ASUS -->
-<Image condition="is">C:\Program Files\ASUS\ARMOURY CRATE Service\ArmouryCrate.AppServiceBridge.exe</Image>
+<Image condition="begin with">C:\Program Files\ASUS\</Image>
 <Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;\ASUSSystemAnalysis\</Image>
 <!-- Github -->
 <Image condition="contains">\AppData\Local\GitHubDesktop\</Image>
 <!-- Opera -->
-<Image condition="contains all">\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</Image>
-<Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\;\opera_crashreporter.exe</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\;</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Temp\.opera\;\installer.exe</Image>
 <!-- Firefox -->
 <Image condition="begin with">C:\Program Files\Mozilla Firefox\</Image>
+<!-- Edge -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Microsoft\EdgeUpdate\</Image>
+<Image condition="begin with">C:\Program Files (x86)\Microsoft\Edge\</Image>
 <!-- ASUS -->
 <Image condition="is">C:\Program Files (x86)\ASUSTeK COMPUTER INC\RefreshRateService\NotifyArmouryCrate.exe</Image>
 <Image condition="contains all">C:\Program Files\ASUS\ARMOURY CRATE Service\;.exe</Image>
@@ -1201,8 +1203,9 @@
 <Image condition="is">C:\Windows\system32\MRT.exe</Image>
 <Image condition="is">C:\Windows\system32\wuauclt.exe</Image>
 <Image condition="begin with">C:\Windows\Temp\</Image>
+
 <Rule groupRelation="and">
-<Image condition="is">C:\Windows\System32\logman.exe</Image>
+<Image condition="begin with">C:\Windows\System32\</Image>
 <ImageLoaded condition="is">C:\Windows\System32\taskschd.dll</ImageLoaded>
 </Rule>
 <!-- Office -->
@@ -1232,6 +1235,12 @@
 <Image condition="contains all">C:\Users\;\AppData\Local\Postman\;\Postman.exe</Image>
 <!-- Logitech -->
 <Image condition="begin with">C:\Program Files\LGHUB\</Image>
+<!-- NVIDIA -->
+<Image condition="contains all">C:\Users\;\AppData\Local\NVIDIA\NvBackend\</Image>
+<Image condition="begin with">C:\Program Files\NVIDIA Corporation\</Image>
+<!-- Net Framework -->
+<Image condition="begin with">C:\Windows\Microsoft.NET\Framework\</Image>
+
 
 <Rule groupRelation="and">
 <Image condition="image">powershell.exe</Image>
@@ -1479,8 +1488,12 @@
 </Rule>
 <!-- Firefox -->
 <SourceImage condition="begin with">C:\Program Files\Mozilla Firefox\</SourceImage>
+<!-- Edge -->
+<SourceImage condition="contains all">C:\Users\;\AppData\Local\Microsoft\EdgeUpdate\</SourceImage>
+<SourceImage condition="begin with">C:\Program Files (x86)\Microsoft\Edge\</SourceImage>
 <!-- NVIDIA -->
-<SourceImage condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\OAWrapper.exe</SourceImage>
+<SourceImage condition="contains all">C:\Users\;\AppData\Local\NVIDIA\NvBackend\</SourceImage>
+<SourceImage condition="begin with">C:\Program Files\NVIDIA Corporation\</SourceImage>
 <!-- Opera -->
 <SourceImage condition="contains all">\AppData\Local\Programs\Opera\;\opera_autoupdate.exe</SourceImage>
 <!-- N-Able -->
@@ -1502,7 +1515,8 @@
 <SourceImage condition="is">C:\Windows\SysWOW64\WindowsPowerShell\v1.0\Powershell.exe</SourceImage>
 <TargetImage condition="begin with">C:\Program Files (x86)\ossec-agent\</TargetImage>
 </Rule>
-
+<!-- Net Framework -->
+<SourceImage condition="begin with">C:\Windows\Microsoft.NET\Framework\</SourceImage>
 
 <Rule groupRelation="and">
 <SourceImage condition="image">opera_crashreporter.exe</SourceImage>
@@ -1672,10 +1686,16 @@
 <!-- ESET -->
 <Image condition="begin with">C:\Program Files\ESET\</Image>
 <!-- EDGE -->
-<Image condition="contains all">C:\Program Files (x86)\Microsoft\EdgeWebView\Application\;\msedgewebview2.exe</Image>
+<Image condition="begin with">C:\Program Files (x86)\Microsoft\EdgeWebView\</Image>
+<Image condition="begin with">C:\Program Files (x86)\Microsoft\Edge\</Image>
 <!-- Opera -->
 <Rule groupRelation="and">
 <Image condition="contains all">C:\Users\;\AppData\Local\Programs\Opera\opera.exe</Image>
+<TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\</TargetFilename>
+</Rule>
+<!-- Edge -->
+<Rule groupRelation="and">
+<Image condition="is">C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe</Image>
 <TargetFilename condition="contains all">C:\Users\;\AppData\Local\Temp\</TargetFilename>
 </Rule>
 <!-- Office -->
@@ -1711,6 +1731,8 @@
 <Image condition="is">C:\Program Files\WinRAR\WinRAR.exe</Image>
 <!-- Visual Studio -->
 <Image condition="end with">\AppData\Local\Programs\Microsoft VS Code\Code.exe</Image>
+<!-- Net Framework -->
+<Image condition="begin with">C:\Windows\Microsoft.NET\Framework\</Image>
 <!-- N-Able -->
 <Image condition="begin with">C:\ProgramData\AdvancedMonitoringAgentNetworkManagement\</Image>
 <Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
@@ -1914,7 +1936,7 @@
 <TargetObject name="technique_id=T1056.001,technique_name=Input Capture - Keylogging" condition="contains">\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\hunmanInterfaceDevice</TargetObject>
 <TargetObject condition="begin with">HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provider</TargetObject>
 <TargetObject condition="begin with">HKLM\SYSTEM\CurrentControlSet\Control\Lsa</TargetObject>
-<TargetObject name="technique_id=T1003,technique_name=Credential Dumping" condition="begin with">HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\</TargetObject>
+<!--<TargetObject name="technique_id=T1003,technique_name=Credential Dumping" condition="begin with">HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\</TargetObject>-->
 <TargetObject name="technique_id=T1003,technique_name=Credential Dumping" condition="contains">\Control\SecurityProviders\WDigest</TargetObject>
 <TargetObject name="technique_id=T1089,technique_name=Disabling Security Tools" condition="begin with">HKLM\SOFTWARE\Microsoft\Security Center\AntiVirusDisableNotify</TargetObject>
 <TargetObject name="technique_id=T1089,technique_name=Disabling Security Tools" condition="begin with">HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\DisableAntiSpyware</TargetObject>
@@ -2130,7 +2152,7 @@
 <TargetObject condition="contains all">HKLM\System\CurrentControlSet\Services\;\Linkage</TargetObject>
 
 <!-- Windows -->
-<Image condition="is">C:\Windows\system32\dashost.exe</Image>
+<!--<Image condition="is">C:\Windows\system32\dashost.exe</Image>
 <Image condition="is">C:\Windows\system32\SecurityHealthService.exe</Image>
 <Image condition="is">C:\Windows\SYSTEM32\netsh.exe</Image>
 <Image condition="is">C:\Windows\system32\csrss.exe</Image>
@@ -2142,20 +2164,20 @@
 <Image condition="is">C:\Windows\system32\dwm.exe</Image>
 <Image condition="is">C:\Windows\system32\cleanmgr.exe</Image>
 <Image condition="is">C:\Windows\system32\MRT.exe</Image>
+<Image condition="is">C:\WINDOWS\system32\services.exe</Image>
+<Image condition="is">C:\Windows\system32\taskhostw.exe</Image>-->
+<Image condition="is">C:\WINDOWS\system32\services.exe</Image>
+<Image condition="begin with">C:\Windows\system32\</Image>
 <Image condition="contains all">C:\Windows\SystemApps\;\SearchApp.exe</Image>
 <Image condition="contains all">C:\Windows\System32\DriverStore\FileRepository\;.exe</Image>
 <!-- NVIDIA -->
-<Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
-<Image condition="is">C:\Program Files\NVIDIA Corporation\NVIDIA GeForce Experience\NVIDIA Share.exe</Image>
-<Image condition="is">C:\Program Files\NVIDIA Corporation\NvContainer\nvcontainer.exe</Image>
-<Image condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\OAWrapper.exe</Image>
-<Image condition="end with">\AppData\Local\NVIDIA\NvBackend\ApplicationOntology\NvOAWrapperCache.exe</Image>
+<Image condition="begin with">C:\Program Files\NVIDIA Corporation\</Image>
+<Image condition="contains all">C:\Users\;\AppData\Local\NVIDIA\NvBackend\</Image>
 <!-- ESET -->
 <Image condition="begin with">C:\Program Files\ESET\</Image>
 <!-- ASUS -->
-<Image condition="is">C:\Program Files\ASUS\ROG Live Service\ROGLiveService.exe</Image>
-<Image condition="is">C:\Program Files\ASUS\ROG Live Service\FileOperator.exe</Image>
-<Image condition="is">C:\Program Files\ASUS\ARMOURY CRATE Service\ArmouryCrate.UserSessionHelper.exe</Image>
+<Image condition="begin with">C:\Program Files\ASUS\</Image>
+
 <Image condition="is">C:\Program Files (x86)\NVIDIA Corporation\NvNode\NVIDIA Web Helper.exe</Image>
 <Image condition="is">C:\Program Files (x86)\LightingService\LightingService.exe</Image>
 <!-- Google Drive -->
@@ -2187,6 +2209,9 @@
 <Image condition="end with">C:\Program Files (x86)\VMware\VMware Workstation\x64\vmware-vmx.exe</Image>
 <!-- Firefox -->
 <Image condition="begin with">C:\Program Files\Mozilla Firefox\</Image>
+<!-- Edge -->
+<Image condition="contains all">C:\Users\;\AppData\Local\Microsoft\EdgeUpdate\</Image>
+<Image condition="begin with">C:\Program Files (x86)\Microsoft\Edge\</Image>
 <!-- Github -->
 <Image condition="contains all">C:\Users\;\AppData\Local\GitHubDesktop\</Image>
 <!-- DeepL -->
@@ -2202,6 +2227,9 @@
 <Image condition="contains all">C:\Users\;\AppData\Local\Take Control Viewer\</Image>
 <!-- Logitech -->
 <Image condition="begin with">C:\Program Files\LGHUB\</Image>
+<!-- Net Framework -->
+<Image condition="begin with">C:\Windows\Microsoft.NET\Framework\</Image>
+
 
 <Rule groupRelation="and">
 <Image condition="is">C:\Windows\system32\SearchProtocolHost.exe</Image>
@@ -2234,6 +2262,7 @@
 		<TargetFilename condition="end with">.dll</TargetFilename>
 		<TargetFilename condition="end with">.exe</TargetFilename>
 		<TargetFilename condition="end with">.hta</TargetFilename>
+		<Image condition="is">C:\WINDOWS\Explorer.EXE</Image>
 		<Rule name="technique_id=T1089,technique_name=Drive-by Compromise" groupRelation="and">
 			<TargetFilename condition="end with">:Zone.Identifier</TargetFilename>
 			<Contents condition="contains any">blob:;about:internet</Contents>
